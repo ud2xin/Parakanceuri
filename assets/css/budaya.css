@@ -1,15 +1,48 @@
-/* CSS Dasar & Reset */
+/* ==========================================================================
+   Kampung Wisata Parakanceuri — Wisata Budaya
+   Token warna & tipografi disamakan dengan halaman Beranda.
+   ========================================================================== */
+:root {
+    --forest-900: #132A20;
+    --forest-700: #1F4A36;
+    --forest-500: #3F7D58;
+    --gold-500:   #D9A441;
+    --gold-300:   #F0C868;
+    --cream-100:  #F6F1E4;
+    --soil-700:   #4A342A;
+    --white:      #FFFFFF;
+    --ink:        #26332C;
+
+    --font-display: 'Fraunces', 'Georgia', serif;
+    --font-body: 'Work Sans', 'Segoe UI', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    --shadow-soft: 0 20px 45px -22px rgba(19, 42, 32, 0.45);
+    --shadow-card: 0 14px 30px -18px rgba(19, 42, 32, 0.35);
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --nav-h: 84px;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-h);
 }
 
 body {
+    font-family: var(--font-body);
     line-height: 1.6;
-    color: #333;
-    background-color: #fdfbf7; /* Warna krem hangat */
+    color: var(--ink);
+    background-color: var(--white);
+    overflow-x: hidden;
 }
 
 a {
@@ -17,164 +50,339 @@ a {
     color: inherit;
 }
 
-/* Navigasi */
-nav {
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-500);
+    margin-bottom: 14px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ==========================================================================
+   Navigasi (sama dengan Beranda)
+   ========================================================================== */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color 0.35s var(--ease), box-shadow 0.35s var(--ease), padding 0.35s var(--ease);
+    padding: 14px 0;
+}
+
+#navbar.scrolled {
+    background-color: rgba(19, 42, 32, 0.94);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.4);
+    padding: 8px 0;
+}
+
+.nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 50px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: transparent;
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-nav.scrolled {
-    background-color: #8D6E63; /* Warna coklat/earthy saat di-scroll */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--white);
+    letter-spacing: 0.01em;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .nav-links a {
-    margin-left: 20px;
-    color: white;
+    padding: 8px 16px;
+    color: rgba(255, 255, 255, 0.88);
     font-weight: 500;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    transition: color 0.3s;
+    font-size: 0.95rem;
+    border-radius: 30px;
+    transition: color 0.25s ease, background-color 0.25s ease;
+    white-space: nowrap;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: #FFECB3;
-    text-decoration: underline;
+.nav-links a:hover {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Hero Section Khusus Budaya */
+.nav-links a.current {
+    color: var(--forest-900);
+    background-color: var(--gold-300);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ==========================================================================
+   Hero Budaya
+   ========================================================================== */
 .hero-budaya {
-    /* Menggunakan overlay coklat hangat untuk kesan budaya */
-    background: linear-gradient(rgba(93, 64, 55, 0.6), rgba(0, 0, 0, 0.7)), url('../images/hero\ budaya.jpg') center/cover no-repeat;
-    height: 70vh;
+    position: relative;
+    min-height: 78svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    padding: 0 20px;
+    color: var(--white);
+    padding: calc(var(--nav-h) + 20px) 20px 90px;
+    background:
+        linear-gradient(180deg, rgba(19,42,32,0.5) 0%, rgba(19,42,32,0.68) 55%, rgba(19,42,32,0.9) 100%),
+        url('../images/hero budaya.jpg') center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 700px;
+    animation: hero-rise 1s var(--ease) both;
+}
+
+@keyframes hero-rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero-budaya h1 {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+}
+
+.hero-budaya h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--gold-300);
 }
 
 .hero-budaya p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 700px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    margin: 0 auto 32px;
+    max-width: 560px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .btn {
-    padding: 12px 30px;
-    background-color: #FFB300;
-    color: #3e2723;
+    display: inline-block;
+    padding: 15px 34px;
+    background-color: var(--gold-500);
+    color: var(--forest-900);
     border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.25s var(--ease), box-shadow 0.3s ease;
+    box-shadow: var(--shadow-soft);
 }
 
 .btn:hover {
-    background-color: #FFA000;
-    transform: translateY(-2px);
+    background-color: var(--gold-300);
+    transform: translateY(-3px);
 }
 
-/* Koleksi Budaya Section */
+/* Signature: kontur punggung gunung */
+.ridge {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: clamp(50px, 9vw, 110px);
+    display: block;
+}
+
+.hero-budaya .ridge--hero {
+    bottom: -1px;
+}
+
+.ridge--hero .ridge-line--1 { fill: var(--white); opacity: 1; }
+.ridge--hero .ridge-line--2 { fill: var(--white); opacity: 0.55; }
+.ridge--hero .ridge-line--3 { fill: var(--white); opacity: 0.3; }
+
+footer .ridge--footer {
+    top: -1px;
+}
+
+.ridge--footer .ridge-line--1 { fill: var(--forest-900); opacity: 1; }
+.ridge--footer .ridge-line--2 { fill: var(--forest-900); opacity: 0.5; }
+
+/* ==========================================================================
+   Koleksi Budaya
+   ========================================================================== */
 .koleksi-budaya {
-    padding: 80px 20px;
+    padding: clamp(60px, 8vw, 100px) 20px clamp(90px, 10vw, 130px);
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
 }
 
-.koleksi-budaya h2 {
-    font-size: 2.5rem;
-    color: #5D4037;
-    margin-bottom: 15px;
+.koleksi-head {
+    margin-bottom: clamp(40px, 6vw, 60px);
+}
+
+.koleksi-head h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--forest-900);
+    margin-bottom: 16px;
 }
 
 .subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 50px;
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
+    color: #667069;
+    max-width: 620px;
+    margin: 0 auto;
 }
 
 .budaya-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: clamp(22px, 3vw, 32px);
 }
 
 .budaya-card {
-    background-color: white;
-    padding: 40px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border-top: 4px solid #FFB300;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--white);
+    padding: 40px 26px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    border-top: 4px solid var(--gold-500);
+    text-align: left;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    transition-delay: calc(var(--i, 0) * 80ms);
 }
 
+.budaya-card:nth-child(1) { --i: 0; }
+.budaya-card:nth-child(2) { --i: 1; }
+.budaya-card:nth-child(3) { --i: 2; }
+.budaya-card:nth-child(4) { --i: 3; }
+
 .budaya-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 24px 46px -20px rgba(19, 42, 32, 0.32);
 }
 
 .card-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background-color: var(--cream-100);
+    color: var(--forest-700);
+    margin-bottom: 22px;
+}
+
+.card-icon svg {
+    width: 28px;
+    height: 28px;
 }
 
 .budaya-card h3 {
-    font-size: 1.3rem;
-    color: #4E342E;
-    margin-bottom: 15px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.28rem;
+    color: var(--forest-900);
+    margin-bottom: 12px;
 }
 
 .budaya-card p {
-    font-size: 0.95rem;
-    color: #555;
+    font-size: 0.96rem;
+    color: #5b6660;
+    line-height: 1.75;
 }
 
-/* Galeri Section */
+/* ==========================================================================
+   Galeri Section
+   ========================================================================== */
 .galeri-budaya {
-    background-color: #EFEBE9;
-    padding: 80px 20px;
+    background-color: var(--cream-100);
+    padding: clamp(60px, 8vw, 100px) 20px;
 }
 
 .galeri-content {
-    max-width: 1000px;
+    max-width: 1080px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: clamp(30px, 4vw, 50px);
 }
 
-.galeri-content img {
+.galeri-media {
     width: 50%;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.galeri-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+}
+
+.galeri-content:hover .galeri-media img {
+    transform: scale(1.05);
 }
 
 .galeri-text {
@@ -182,42 +390,175 @@ nav.scrolled {
 }
 
 .galeri-text h2 {
-    font-size: 2.2rem;
-    color: #4E342E;
-    margin-bottom: 20px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+    color: var(--forest-900);
+    margin-bottom: 18px;
 }
 
 .galeri-text p {
-    font-size: 1.1rem;
-    color: #555;
+    font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+    color: #5b6660;
     line-height: 1.8;
 }
 
-/* Footer */
+/* ==========================================================================
+   Footer (sama dengan Beranda)
+   ========================================================================== */
 footer {
-    background-color: #4E342E;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
+    position: relative;
+    background-color: var(--forest-900);
+    color: rgba(255, 255, 255, 0.85);
+    padding: clamp(70px, 8vw, 90px) 20px 30px;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-info h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 16px;
 }
 
 .footer-info p {
-    margin: 5px 0;
+    margin: 6px 0;
+    font-size: 0.94rem;
+    color: rgba(255, 255, 255, 0.72);
 }
 
-/* Responsif untuk HP */
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-nav-title {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-300);
+    margin-bottom: 6px;
+}
+
+.footer-nav a {
+    font-size: 0.94rem;
+    color: rgba(255, 255, 255, 0.72);
+    transition: color 0.25s ease;
+    width: fit-content;
+}
+
+.footer-nav a:hover {
+    color: var(--white);
+}
+
+.footer-copy {
+    max-width: 1100px;
+    margin: 24px auto 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   Responsif
+   ========================================================================== */
+
+/* Mobile: hamburger nav + stacked galeri */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 15px;
-        background-color: #8D6E63;
+    :root { --nav-h: 68px; }
+
+    .nav-toggle {
+        display: flex;
     }
-    
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100svh;
+        width: min(78vw, 320px);
+        background-color: var(--forest-900);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 0 36px;
+        transform: translateX(100%);
+        transition: transform 0.4s var(--ease);
+        box-shadow: -20px 0 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-links.open {
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 14px 8px;
+        font-size: 1.05rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-links a.current {
+        background-color: transparent;
+        color: var(--gold-300);
+    }
+
+    .hero-budaya {
+        padding-top: calc(var(--nav-h) + 30px);
+    }
+
     .galeri-content {
         flex-direction: column;
     }
 
-    .galeri-content img, .galeri-text {
+    .galeri-media, .galeri-text {
         width: 100%;
     }
+
+    .galeri-media img {
+        min-height: 220px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .nav-inner {
+        padding: 0 18px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .budaya-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--gold-500);
+    outline-offset: 3px;
 }
