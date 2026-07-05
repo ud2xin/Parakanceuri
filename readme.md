@@ -1,36 +1,60 @@
-# 🌐 Website Company Profile - KKN Universitas 2026
+# 🍃 Website Kampung Wisata Parakanceuri
 
-Website profil instansi/desa ini dibangun sebagai bagian dari program kerja **Kuliah Kerja Nyata (KKN)** untuk menyajikan informasi visual, potensi wilayah, serta program unggulan secara cepat, ringan, dan mudah diakses oleh masyarakat luas.
+Website ini adalah profil digital dan pusat informasi resmi untuk mempromosikan potensi pariwisata yang ada di **Kampung Wisata Parakanceuri**, Desa Pusakamulya, Kecamatan Kiarapedes, Kabupaten Purwakarta, Jawa Barat. 
 
-Project ini dirancang menggunakan arsitektur **Web Statis** agar performanya maksimal, bebas biaya *hosting*, dan mudah diwariskan atau dikelola oleh perangkat setempat setelah masa KKN selesai.
-
----
-
-## 🚀 Fitur Utama
-*   **Hero Section:** Tampilan utama yang estetik dengan identitas visual lokasi KKN.
-*   **Profil & Sejarah:** Informasi mendalam mengenai latar belakang dan profil wilayah/organisasi.
-*   **Visi & Misi:** Paparan target, arah, dan nilai-nilai instansi.
-*   **Program Unggulan / Fasilitas:** Dokumentasi infografis mengenai potensi lokal (UMKM, pariwisata, atau sarana publik).
-*   **Galeri Kegiatan:** Arsip foto dokumentasi program kerja dan kegiatan KKN.
-*   **Kontak & Lokasi:** Integrasi peta interaktif (*Google Maps Embed*) dan saluran komunikasi resmi.
+Proyek ini dibangun untuk memudahkan wisatawan mencari informasi mengenai destinasi alam, ragam kebudayaan, dan paket wisata edukasi yang ditawarkan oleh desa.
 
 ---
 
-## 📁 Struktur Folder
+## 📑 Struktur Halaman
+
+Website ini terdiri dari 4 halaman utama, masing-masing dengan file HTML, CSS, dan JavaScript yang dipisah agar lebih rapi dan mudah dimodifikasi:
+
+1. **Beranda (`index.html`)**
+   Halaman utama yang menampilkan ringkasan profil desa, *hero banner*, dan navigasi cepat ke paket-paket wisata lainnya.
+2. **Wisata Alam (`alam.html`)**
+   Menampilkan potensi alam Parakanceuri seperti Curug Cilamaya, jalur *trekking*, dan area perkemahan.
+3. **Wisata Budaya (`budaya.html`)**
+   Mendokumentasikan kearifan lokal, kesenian tradisional (Maenpo, Angklung, Tutunggulan), dan *kaulinan lembur*.
+4. **Wisata Edukasi (`edukasi.html`)**
+   Menawarkan program *agrowisata* dan *living with local* (bertani padi, UMKM lokal seperti Seroja, serta pengolahan kopi dan teh).
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+Website ini dibangun murni menggunakan teknologi web dasar (*Vanilla*), sehingga ringan dan tidak memerlukan instalasi *framework* tambahan:
+* **HTML5** (Semantik web)
+* **CSS3** (Styling, transisi, animasi *scroll*, dan desain responsif)
+* **Vanilla JavaScript** (Interaksi DOM, *smooth scrolling*, manipulasi *navbar*, dan animasi *Intersection Observer*)
+
+---
+
+## 📂 Struktur Folder Proyek
+
+Pastikan semua file diletakkan dalam satu folder (*root directory*) yang sama agar semua *link* dan gambar berfungsi dengan baik:
+
 ```text
-nama-project-kkn/
+/kampung-wisata-parakanceuri
 │
-├── assets/
-│   ├── css/
-│   │   └── style.css          # Untuk custom styling tambahan
-│   │
-│   ├── js/
-│   │   └── main.js            # Untuk interaksi ringan (seperti toggle navbar mobile)
-│   │
-│   └── images/
-│       ├── logo/              # Logo KKN atau lambang instansi resmi
-│       ├── galeri/            # Foto dokumentasi kegiatan program kerja
-│       └── hero-bg.webp       # Gambar latar utama halaman depan
+├── 📄 index.html        # Halaman Beranda
+├── 📄 style.css         # CSS Beranda
+├── 📄 script.js         # JS Beranda
 │
-├── index.html                 # Halaman utama website (Landing Page)
-└── README.md                  # Dokumentasi project (File ini)
+├── 📄 alam.html         # Halaman Alam
+├── 📄 alam.css          # CSS Alam
+├── 📄 alam.js           # JS Alam
+│
+├── 📄 budaya.html       # Halaman Budaya
+├── 📄 budaya.css        # CSS Budaya
+├── 📄 budaya.js         # JS Budaya
+│
+├── 📄 edukasi.html      # Halaman Edukasi
+├── 📄 edukasi.css       # CSS Edukasi
+├── 📄 edukasi.js        # JS Edukasi
+│
+└── 🖼️ Assets Gambar (Pastikan nama file sama persis dengan yang dipanggil di HTML/CSS):
+    ├── POSTER WISATA ALAM.jpg
+    ├── TRAVEL PATTERN ALAM.PNG
+    ├── Infografis Agrowisata.jpg
+    └── Poster Paket Wisata Seroja EDUKASI.jpg
