@@ -1,15 +1,48 @@
-/* CSS Dasar & Reset */
+/* ==========================================================================
+   Kampung Wisata Parakanceuri — Wisata Edukasi & Agrowisata
+   Token warna & tipografi disamakan dengan halaman Beranda.
+   ========================================================================== */
+:root {
+    --forest-900: #132A20;
+    --forest-700: #1F4A36;
+    --forest-500: #3F7D58;
+    --gold-500:   #D9A441;
+    --gold-300:   #F0C868;
+    --cream-100:  #F6F1E4;
+    --soil-700:   #4A342A;
+    --white:      #FFFFFF;
+    --ink:        #26332C;
+
+    --font-display: 'Fraunces', 'Georgia', serif;
+    --font-body: 'Work Sans', 'Segoe UI', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    --shadow-soft: 0 20px 45px -22px rgba(19, 42, 32, 0.45);
+    --shadow-card: 0 14px 30px -18px rgba(19, 42, 32, 0.35);
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --nav-h: 84px;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-h);
 }
 
 body {
+    font-family: var(--font-body);
     line-height: 1.6;
-    color: #333;
-    background-color: #FAFAFA;
+    color: var(--ink);
+    background-color: var(--white);
+    overflow-x: hidden;
 }
 
 a {
@@ -17,210 +50,522 @@ a {
     color: inherit;
 }
 
-/* Navigasi */
-nav {
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-500);
+    margin-bottom: 14px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ==========================================================================
+   Navigasi (sama dengan Beranda)
+   ========================================================================== */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color 0.35s var(--ease), box-shadow 0.35s var(--ease), padding 0.35s var(--ease);
+    padding: 14px 0;
+}
+
+#navbar.scrolled {
+    background-color: rgba(19, 42, 32, 0.94);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.4);
+    padding: 8px 0;
+}
+
+.nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 50px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: transparent;
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-nav.scrolled {
-    background-color: #F9A825; /* Warna kuning emas/agrikultur */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--white);
+    letter-spacing: 0.01em;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .nav-links a {
-    margin-left: 20px;
-    color: white;
+    padding: 8px 16px;
+    color: rgba(255, 255, 255, 0.88);
     font-weight: 500;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    transition: color 0.3s;
+    font-size: 0.95rem;
+    border-radius: 30px;
+    transition: color 0.25s ease, background-color 0.25s ease;
+    white-space: nowrap;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: #FFF9C4;
-    text-decoration: underline;
+.nav-links a:hover {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Hero Section Khusus Edukasi */
+.nav-links a.current {
+    color: var(--forest-900);
+    background-color: var(--gold-300);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ==========================================================================
+   Hero Edukasi
+   ========================================================================== */
 .hero-edukasi {
-    /* Menggunakan overlay dengan nuansa hangat */
-    background: linear-gradient(rgba(249, 168, 37, 0.5), rgba(0, 0, 0, 0.7)), url('../images/hero\ edukasi.png') center/cover no-repeat;
-    height: 70vh;
+    position: relative;
+    min-height: 78svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    padding: 0 20px;
+    color: var(--white);
+    padding: calc(var(--nav-h) + 20px) 20px 90px;
+    background:
+        linear-gradient(180deg, rgba(19,42,32,0.5) 0%, rgba(19,42,32,0.68) 55%, rgba(19,42,32,0.9) 100%),
+        url('../images/hero edukasi.png') center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 720px;
+    animation: hero-rise 1s var(--ease) both;
+}
+
+@keyframes hero-rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero-edukasi h1 {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+}
+
+.hero-edukasi h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--gold-300);
 }
 
 .hero-edukasi p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 700px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    margin: 0 auto 32px;
+    max-width: 580px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .btn {
-    padding: 12px 30px;
-    background-color: #43A047; /* Tombol hijau kontras */
-    color: white;
+    display: inline-block;
+    padding: 15px 34px;
+    background-color: var(--gold-500);
+    color: var(--forest-900);
     border: none;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.25s var(--ease), box-shadow 0.3s ease;
+    box-shadow: var(--shadow-soft);
 }
 
 .btn:hover {
-    background-color: #2E7D32;
-    transform: translateY(-2px);
+    background-color: var(--gold-300);
+    transform: translateY(-3px);
 }
 
-/* Program Edukasi Section */
+/* Signature: kontur punggung gunung */
+.ridge {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: clamp(50px, 9vw, 110px);
+    display: block;
+}
+
+.hero-edukasi .ridge--hero {
+    bottom: -1px;
+}
+
+.ridge--hero .ridge-line--1 { fill: var(--white); opacity: 1; }
+.ridge--hero .ridge-line--2 { fill: var(--white); opacity: 0.55; }
+.ridge--hero .ridge-line--3 { fill: var(--white); opacity: 0.3; }
+
+footer .ridge--footer {
+    top: -1px;
+}
+
+.ridge--footer .ridge-line--1 { fill: var(--forest-900); opacity: 1; }
+.ridge--footer .ridge-line--2 { fill: var(--forest-900); opacity: 0.5; }
+
+/* ==========================================================================
+   Program Edukasi
+   ========================================================================== */
 .program-edukasi {
-    padding: 80px 20px;
-    max-width: 1100px;
+    padding: clamp(60px, 8vw, 100px) 20px clamp(80px, 9vw, 110px);
+    max-width: 1180px;
     margin: 0 auto;
     text-align: center;
 }
 
-.program-edukasi h2 {
-    font-size: 2.5rem;
-    color: #F57F17;
-    margin-bottom: 15px;
+.program-head {
+    margin-bottom: clamp(40px, 6vw, 60px);
+}
+
+.program-head h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--forest-900);
+    margin-bottom: 16px;
 }
 
 .subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 50px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
+    color: #667069;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .edukasi-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(24px, 3vw, 36px);
 }
 
 .edukasi-card {
-    background-color: white;
-    border-radius: 12px;
+    background-color: var(--white);
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), opacity 0.8s var(--ease);
     text-align: left;
+    transition-delay: calc(var(--i, 0) * 80ms);
 }
 
+.edukasi-card:nth-child(1) { --i: 0; }
+.edukasi-card:nth-child(2) { --i: 1; }
+.edukasi-card:nth-child(3) { --i: 2; }
+
 .edukasi-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
+    box-shadow: 0 26px 50px -20px rgba(19, 42, 32, 0.35);
+}
+
+.card-img {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
 }
 
 .card-img img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.6s var(--ease);
+}
+
+.edukasi-card:hover .card-img img {
+    transform: scale(1.08);
+}
+
+.card-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background-color: rgba(19, 42, 32, 0.82);
+    backdrop-filter: blur(3px);
+    color: var(--white);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 30px;
+}
+
+.card-tag svg {
+    width: 15px;
+    height: 15px;
 }
 
 .card-content {
-    padding: 25px;
+    padding: 26px 24px 28px;
 }
 
 .card-content h3 {
-    font-size: 1.4rem;
-    color: #2E7D32;
-    margin-bottom: 15px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.32rem;
+    color: var(--forest-900);
+    margin-bottom: 12px;
 }
 
 .card-content p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
+    font-size: 0.98rem;
+    color: #5b6660;
+    line-height: 1.75;
 }
 
-/* Call to Action Section */
+/* ==========================================================================
+   Call to Action
+   ========================================================================== */
 .cta-edukasi {
-    background-color: #FFF9C4;
-    padding: 60px 20px;
+    background-color: var(--cream-100);
+    padding: clamp(60px, 7vw, 90px) 20px;
     text-align: center;
-    margin-top: 40px;
 }
 
 .cta-edukasi h2 {
-    color: #F57F17;
-    margin-bottom: 15px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+    color: var(--forest-900);
+    margin-bottom: 16px;
 }
 
 .cta-edukasi p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 25px;
-    max-width: 600px;
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
+    color: #5b6660;
+    margin-bottom: 28px;
+    max-width: 620px;
     margin-left: auto;
     margin-right: auto;
 }
 
+.cta-edukasi p em {
+    font-style: italic;
+}
+
 .btn-outline {
-    padding: 12px 30px;
+    padding: 14px 32px;
     background-color: transparent;
-    color: #F57F17;
-    border: 2px solid #F57F17;
+    color: var(--forest-700);
+    border: 2px solid var(--forest-700);
     border-radius: 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s var(--ease);
+    font-family: inherit;
 }
 
 .btn-outline:hover {
-    background-color: #F57F17;
-    color: white;
+    background-color: var(--forest-700);
+    color: var(--white);
+    transform: translateY(-3px);
 }
 
-/* Footer */
+/* ==========================================================================
+   Footer (sama dengan Beranda)
+   ========================================================================== */
 footer {
-    background-color: #F57F17;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
+    position: relative;
+    background-color: var(--forest-900);
+    color: rgba(255, 255, 255, 0.85);
+    padding: clamp(70px, 8vw, 90px) 20px 30px;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-info h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 16px;
 }
 
 .footer-info p {
-    margin: 5px 0;
+    margin: 6px 0;
+    font-size: 0.94rem;
+    color: rgba(255, 255, 255, 0.72);
 }
 
-/* Responsif untuk HP */
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-nav-title {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-300);
+    margin-bottom: 6px;
+}
+
+.footer-nav a {
+    font-size: 0.94rem;
+    color: rgba(255, 255, 255, 0.72);
+    transition: color 0.25s ease;
+    width: fit-content;
+}
+
+.footer-nav a:hover {
+    color: var(--white);
+}
+
+.footer-copy {
+    max-width: 1100px;
+    margin: 24px auto 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   Responsif
+   ========================================================================== */
+
+/* Mobile: hamburger nav */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 15px;
-        background-color: #F9A825;
+    :root { --nav-h: 68px; }
+
+    .nav-toggle {
+        display: flex;
     }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100svh;
+        width: min(78vw, 320px);
+        background-color: var(--forest-900);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 0 36px;
+        transform: translateX(100%);
+        transition: transform 0.4s var(--ease);
+        box-shadow: -20px 0 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-links.open {
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 14px 8px;
+        font-size: 1.05rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-links a.current {
+        background-color: transparent;
+        color: var(--gold-300);
+    }
+
+    .hero-edukasi {
+        padding-top: calc(var(--nav-h) + 30px);
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .nav-inner {
+        padding: 0 18px;
+    }
+
+    .btn, .btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+
+    .edukasi-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--gold-500);
+    outline-offset: 3px;
 }

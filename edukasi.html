@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wisata Edukasi - Parakanceuri</title>
+    <meta name="description" content="Program Wisata Edukasi & Agrowisata Kampung Wisata Parakanceuri: bertani padi, pembuatan produk UMKM, hingga pengolahan kopi dan teh di kaki Gunung Burangrang.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/edukasi.css">
     <script src="assets/js/edukasi.js" defer></script>
 </head>
@@ -11,79 +17,126 @@
 
     <!-- Navigasi -->
     <nav id="navbar">
-        <div class="logo">Parakanceuri</div>
-        <div class="nav-links">
-            <a href="index.html">Beranda</a>
-            <a href="alam.html">Wisata Alam</a>
-            <a href="budaya.html">Wisata Budaya</a>
-            <a href="edukasi.html" class="active">Wisata Edukasi</a>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Parakanceuri</a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Beranda</a>
+                <a href="alam.html">Wisata Alam</a>
+                <a href="budaya.html">Wisata Budaya</a>
+                <a href="edukasi.html" class="current">Wisata Edukasi</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-edukasi">
-        <h1>Wisata Edukasi & Agrowisata</h1>
-        <p>Jadikan alam sebagai ruang kelas terbaik. Belajar langsung dari ahlinya: masyarakat lokal yang merawat tradisi dan alam.</p>
-        <a href="#program-edukasi" class="btn">Lihat Program</a>
+        <div class="hero-content">
+            <span class="eyebrow">Wisata Edukasi &amp; Agrowisata</span>
+            <h1>Ruang Kelas <em>Terbuka</em></h1>
+            <p>Jadikan alam sebagai ruang kelas terbaik. Belajar langsung dari ahlinya: masyarakat lokal yang merawat tradisi dan alam.</p>
+            <a href="#program-edukasi" class="btn">Lihat Program</a>
+        </div>
+
+        <!-- Signature: kontur punggung Gunung Burangrang -->
+        <svg class="ridge ridge--hero" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+            <path class="ridge-line ridge-line--1" d="M0,120 L140,70 L280,100 L420,40 L600,90 L760,20 L940,80 L1100,50 L1280,95 L1440,60 L1440,140 L0,140 Z"/>
+            <path class="ridge-line ridge-line--2" d="M0,130 L160,95 L320,115 L480,75 L640,110 L820,55 L1000,100 L1180,80 L1440,105 L1440,140 L0,140 Z"/>
+            <path class="ridge-line ridge-line--3" d="M0,140 L200,118 L400,132 L620,105 L840,128 L1060,110 L1260,130 L1440,120 L1440,140 L0,140 Z"/>
+        </svg>
     </section>
 
     <!-- Program Edukasi Section -->
     <section class="program-edukasi" id="program-edukasi">
-        <h2>Program Pembelajaran Kami</h2>
-        <p class="subtitle">Kami menawarkan pengalaman "Living with Local" di mana pengunjung dapat terjun langsung mempraktikkan kegiatan sehari-hari masyarakat desa.</p>
-        
+        <div class="program-head reveal">
+            <span class="eyebrow">Program</span>
+            <h2>Program Pembelajaran Kami</h2>
+            <p class="subtitle">Kami menawarkan pengalaman &ldquo;Living with Local&rdquo; di mana pengunjung dapat terjun langsung mempraktikkan kegiatan sehari-hari masyarakat desa.</p>
+        </div>
+
         <div class="edukasi-container">
             <!-- Program 1 -->
-            <div class="edukasi-card">
+            <article class="edukasi-card reveal">
                 <div class="card-img">
-                    <img src="assets/images/card bertani.jpg" alt="Bertani Padi">
+                    <img src="assets/images/card bertani.jpg" alt="Bertani Padi" loading="lazy">
+                    <span class="card-tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-4 3-7 7-7 11a7 7 0 0 0 14 0c0-4-3-8-7-11Z"/><path d="M12 10v9"/></svg>
+                        Agrowisata
+                    </span>
                 </div>
                 <div class="card-content">
                     <h3>Agrowisata: Bertani Padi</h3>
                     <p>Turun langsung ke sawah! Pengunjung akan diajarkan proses bertani mulai dari membajak sawah, menanam benih (tandur), hingga memahami sistem irigasi tradisional.</p>
                 </div>
-            </div>
+            </article>
 
             <!-- Program 2 -->
-            <div class="edukasi-card">
+            <article class="edukasi-card reveal">
                 <div class="card-img">
-                    <img src="assets/images/card umkm.jfif" alt="Pembuatan UMKM Seroja">
+                    <img src="assets/images/card umkm.jfif" alt="Pembuatan UMKM Seroja" loading="lazy">
+                    <span class="card-tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 2H7.5a2 2 0 0 1-2-2L4 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+                        UMKM
+                    </span>
                 </div>
                 <div class="card-content">
                     <h3>Pembuatan Produk UMKM</h3>
                     <p>Ikuti lokakarya pembuatan makanan khas lokal seperti Seroja. Pelajari resep rahasia, cara pengolahan, hingga proses pengemasan yang bernilai ekonomi tinggi.</p>
                 </div>
-            </div>
-            
+            </article>
+
             <!-- Program 3 -->
-            <div class="edukasi-card">
+            <article class="edukasi-card reveal">
                 <div class="card-img">
-                    <!-- Menggunakan placeholder background/warna jika gambar tidak ada, atau bisa pakai gambar alam -->
-                    <img src="assets/images/card kopi.jpeg" alt="Pengolahan Kopi dan Teh">
+                    <img src="assets/images/card kopi.jpeg" alt="Pengolahan Kopi dan Teh" loading="lazy">
+                    <span class="card-tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h13v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-4Z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 4c0 1-1 1-1 2M11 4c0 1-1 1-1 2"/></svg>
+                        Kopi &amp; Teh
+                    </span>
                 </div>
                 <div class="card-content">
-                    <h3>Pengolahan Kopi & Teh</h3>
+                    <h3>Pengolahan Kopi &amp; Teh</h3>
                     <p>Kenali komoditas unggulan dari kaki Gunung Burangrang. Ikuti proses memetik pucuk teh atau biji kopi pilihan, menyangrai, hingga menyeduh segelas minuman yang sempurna.</p>
                 </div>
-            </div>
+            </article>
         </div>
     </section>
 
     <!-- Call to Action Section -->
-    <section class="cta-edukasi">
-        <h2>Cocok untuk Kunjungan Sekolah & Keluarga</h2>
-        <p>Program edukasi kami sangat direkomendasikan untuk *field trip* sekolah, kegiatan mahasiswa, maupun liburan keluarga yang mendidik.</p>
+    <section class="cta-edukasi reveal">
+        <h2>Cocok untuk Kunjungan Sekolah &amp; Keluarga</h2>
+        <p>Program edukasi kami sangat direkomendasikan untuk <em>field trip</em> sekolah, kegiatan mahasiswa, maupun liburan keluarga yang mendidik.</p>
         <button class="btn-outline" onclick="alert('Silakan hubungi 0859-2621-2815 untuk reservasi grup!')">Hubungi Kami untuk Reservasi</button>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-info">
-            <h3>Kampung Wisata Parakanceuri</h3>
-            <p>Desa Pusakamulya, Kiarapedes, Purwakarta, Jawa Barat 41175</p>
-            <p>Telepon: 0859-2621-2815 | 0821-2688-9083</p>
+        <svg class="ridge ridge--footer" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+            <path class="ridge-line ridge-line--1" d="M0,20 L140,70 L280,40 L420,100 L600,50 L760,120 L940,60 L1100,90 L1280,45 L1440,80 L1440,0 L0,0 Z"/>
+            <path class="ridge-line ridge-line--2" d="M0,10 L160,45 L320,25 L480,65 L640,30 L820,85 L1000,40 L1180,60 L1440,35 L1440,0 L0,0 Z"/>
+        </svg>
+
+        <div class="footer-inner">
+            <div class="footer-info">
+                <h3>Kampung Wisata Parakanceuri</h3>
+                <p>Desa Pusakamulya, Kiarapedes, Purwakarta, Jawa Barat 41175</p>
+                <p>Telepon: 0859-2621-2815 &middot; 0821-2688-9083</p>
+            </div>
+
+            <div class="footer-nav">
+                <span class="footer-nav-title">Jelajahi</span>
+                <a href="index.html">Beranda</a>
+                <a href="alam.html">Wisata Alam</a>
+                <a href="budaya.html">Wisata Budaya</a>
+                <a href="edukasi.html">Wisata Edukasi</a>
+            </div>
         </div>
-        <p>&copy; 2026 Kampung Wisata Parakanceuri. All rights reserved.</p>
+
+        <p class="footer-copy">&copy; 2026 Kampung Wisata Parakanceuri. All rights reserved.</p>
     </footer>
 
 </body>
