@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wisata Alam - Parakanceuri</title>
+    <meta name="description" content="Jelajahi wisata alam Kampung Wisata Parakanceuri: Curug Cilamaya, jalur trekking perbukitan, dan area berkemah di kaki Gunung Burangrang.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/alam.css">
     <script src="assets/js/alam.js" defer></script>
 </head>
@@ -11,30 +17,56 @@
 
     <!-- Navigasi -->
     <nav id="navbar">
-        <div class="logo">Parakanceuri</div>
-        <div class="nav-links">
-            <a href="index.html">Beranda</a>
-            <a href="alam.html" class="active">Wisata Alam</a>
-            <a href="budaya.html">Wisata Budaya</a>
-            <a href="edukasi.html">Wisata Edukasi</a>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Parakanceuri</a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Beranda</a>
+                <a href="alam.html" class="current">Wisata Alam</a>
+                <a href="budaya.html">Wisata Budaya</a>
+                <a href="edukasi.html">Wisata Edukasi</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-alam">
-        <h1>Eksplorasi Alam</h1>
-        <p>Hiruplah udara segar pegunungan dan temukan kedamaian di balik asrinya alam kaki Gunung Burangrang.</p>
-        <a href="#destinasi" class="btn">Jelajahi Destinasi</a>
+        <div class="hero-content">
+            <span class="eyebrow">Wisata Alam</span>
+            <h1>Eksplorasi <em>Alam</em></h1>
+            <p>Hiruplah udara segar pegunungan dan temukan kedamaian di balik asrinya alam kaki Gunung Burangrang.</p>
+            <a href="#destinasi" class="btn">Jelajahi Destinasi</a>
+        </div>
+
+        <!-- Signature: kontur punggung Gunung Burangrang -->
+        <svg class="ridge ridge--hero" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+            <path class="ridge-line ridge-line--1" d="M0,120 L140,70 L280,100 L420,40 L600,90 L760,20 L940,80 L1100,50 L1280,95 L1440,60 L1440,140 L0,140 Z"/>
+            <path class="ridge-line ridge-line--2" d="M0,130 L160,95 L320,115 L480,75 L640,110 L820,55 L1000,100 L1180,80 L1440,105 L1440,140 L0,140 Z"/>
+            <path class="ridge-line ridge-line--3" d="M0,140 L200,118 L400,132 L620,105 L840,128 L1060,110 L1260,130 L1440,120 L1440,140 L0,140 Z"/>
+        </svg>
     </section>
 
     <!-- Destinasi Section -->
     <section class="destinasi" id="destinasi">
-        <h2>Destinasi Wisata Alam Kami</h2>
-        
+        <div class="destinasi-head reveal">
+            <span class="eyebrow">Destinasi</span>
+            <h2>Destinasi Wisata Alam Kami</h2>
+        </div>
+
         <div class="destinasi-grid">
             <!-- Destinasi 1 -->
-            <div class="destinasi-item">
-                <img src="assets/images/curug cilamaya.jpg" alt="Curug Cilamaya">
+            <div class="destinasi-item reveal">
+                <div class="destinasi-media">
+                    <img src="assets/images/curug cilamaya.jpg" alt="Curug Cilamaya" loading="lazy">
+                    <span class="destinasi-tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c2 4 5 7 5 11a5 5 0 0 1-10 0c0-4 3-7 5-11Z"/></svg>
+                        Air Terjun
+                    </span>
+                </div>
                 <div class="item-info">
                     <h3>Curug Cilamaya</h3>
                     <p>Air terjun tersembunyi dengan aliran air yang jernih dan menyegarkan. Dikelilingi oleh pepohonan rindang, Curug Cilamaya adalah tempat yang sempurna untuk melepas penat dan bersantai bersama keluarga.</p>
@@ -42,17 +74,29 @@
             </div>
 
             <!-- Destinasi 2 -->
-            <div class="destinasi-item reverse">
-                <img src="assets/images/trekking.jpg" alt="Trekking Perbukitan">
+            <div class="destinasi-item reverse reveal">
+                <div class="destinasi-media">
+                    <img src="assets/images/trekking.jpg" alt="Trekking Perbukitan" loading="lazy">
+                    <span class="destinasi-tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l6-14 4 8 3-5 3 11H4Z"/></svg>
+                        Trekking
+                    </span>
+                </div>
                 <div class="item-info">
-                    <h3>Trekking & Jalur Hijau</h3>
+                    <h3>Trekking &amp; Jalur Hijau</h3>
                     <p>Bagi Anda yang menyukai petualangan, kami menyediakan jalur trekking yang menyusuri perbukitan hijau dan area perkebunan warga. Nikmati pemandangan matahari terbit yang memukau dari titik-titik tertinggi kampung kami.</p>
                 </div>
             </div>
-            
+
             <!-- Destinasi 3 -->
-            <div class="destinasi-item">
-                <img src="assets/images/camping.jfif" alt="Area Berkemah">
+            <div class="destinasi-item reveal">
+                <div class="destinasi-media">
+                    <img src="assets/images/camping.jfif" alt="Area Berkemah" loading="lazy">
+                    <span class="destinasi-tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20 12 4l9 16H3Z"/><path d="M12 4v16"/></svg>
+                        Berkemah
+                    </span>
+                </div>
                 <div class="item-info">
                     <h3>Area Berkemah (Camping Ground)</h3>
                     <p>Habiskan malam di bawah taburan bintang. Area perkemahan kami aman, nyaman, dan dilengkapi dengan fasilitas dasar, memungkinkan Anda untuk menyatu dengan alam tanpa mengorbankan kenyamanan.</p>
@@ -63,12 +107,28 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-info">
-            <h3>Kampung Wisata Parakanceuri</h3>
-            <p>Desa Pusakamulya, Kiarapedes, Purwakarta, Jawa Barat 41175</p>
-            <p>Telepon: 0859-2621-2815 | 0821-2688-9083</p>
+        <svg class="ridge ridge--footer" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+            <path class="ridge-line ridge-line--1" d="M0,20 L140,70 L280,40 L420,100 L600,50 L760,120 L940,60 L1100,90 L1280,45 L1440,80 L1440,0 L0,0 Z"/>
+            <path class="ridge-line ridge-line--2" d="M0,10 L160,45 L320,25 L480,65 L640,30 L820,85 L1000,40 L1180,60 L1440,35 L1440,0 L0,0 Z"/>
+        </svg>
+
+        <div class="footer-inner">
+            <div class="footer-info">
+                <h3>Kampung Wisata Parakanceuri</h3>
+                <p>Desa Pusakamulya, Kiarapedes, Purwakarta, Jawa Barat 41175</p>
+                <p>Telepon: 0859-2621-2815 &middot; 0821-2688-9083</p>
+            </div>
+
+            <div class="footer-nav">
+                <span class="footer-nav-title">Jelajahi</span>
+                <a href="index.html">Beranda</a>
+                <a href="alam.html">Wisata Alam</a>
+                <a href="budaya.html">Wisata Budaya</a>
+                <a href="edukasi.html">Wisata Edukasi</a>
+            </div>
         </div>
-        <p>&copy; 2026 Kampung Wisata Parakanceuri. All rights reserved.</p>
+
+        <p class="footer-copy">&copy; 2026 Kampung Wisata Parakanceuri. All rights reserved.</p>
     </footer>
 
 </body>
