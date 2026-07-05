@@ -37,24 +37,47 @@ Pastikan semua file diletakkan dalam satu folder (*root directory*) yang sama ag
 ```text
 /kampung-wisata-parakanceuri
 │
-├── 📄 index.html        # Halaman Beranda
-├── 📄 style.css         # CSS Beranda
-├── 📄 script.js         # JS Beranda
+├── 📄 index.html        
+├── 📄 style.css         
+├── 📄 script.js         
 │
-├── 📄 alam.html         # Halaman Alam
-├── 📄 alam.css          # CSS Alam
-├── 📄 alam.js           # JS Alam
+├── 📄 alam.html         
+├── 📄 alam.css          
+├── 📄 alam.js           
 │
-├── 📄 budaya.html       # Halaman Budaya
-├── 📄 budaya.css        # CSS Budaya
-├── 📄 budaya.js         # JS Budaya
+├── 📄 budaya.html       
+├── 📄 budaya.css        
+├── 📄 budaya.js         
 │
-├── 📄 edukasi.html      # Halaman Edukasi
-├── 📄 edukasi.css       # CSS Edukasi
-├── 📄 edukasi.js        # JS Edukasi
+├── 📄 edukasi.html      
+├── 📄 edukasi.css       
+├── 📄 edukasi.js        
 │
 └── 🖼️ Assets Gambar (Pastikan nama file sama persis dengan yang dipanggil di HTML/CSS):
-    ├── POSTER WISATA ALAM.jpg
-    ├── TRAVEL PATTERN ALAM.PNG
-    ├── Infografis Agrowisata.jpg
-    └── Poster Paket Wisata Seroja EDUKASI.jpg
+
+🚀 Cara Menjalankan (How to Run)
+Tidak ada instalasi server atau package khusus yang dibutuhkan. Cukup ikuti langkah ini:
+
+Pastikan Anda telah mengunduh (atau me-clone) seluruh file proyek ke dalam satu folder.
+
+Pastikan file gambar telah dimasukkan ke dalam folder yang sama dengan file HTML.
+
+Klik dua kali pada file index.html, dan website akan langsung terbuka di browser bawaan Anda (Chrome, Firefox, Safari, dll).
+
+📱 Fitur Unggulan
+Responsif: Tampilan otomatis menyesuaikan dengan ukuran layar perangkat pengguna (Laptop, Tablet, maupun Smartphone).
+
+Interactive Navbar: Navigasi akan berubah warna dan memunculkan efek bayangan (shadow) saat pengguna menggulir (scroll) halaman ke bawah.
+
+Smooth Scrolling: Perpindahan antar-bagian (section) di dalam satu halaman yang sama terasa lebih halus dan elegan.
+
+Animasi Saat Scroll: Konten (kartu wisata) akan muncul dengan efek fade-in perlahan saat pengguna mulai menggulir halaman.
+
+📞 Kontak & Reservasi
+Kampung Wisata Parakanceuri
+
+📍 Desa Pusakamulya, Kiarapedes, Purwakarta, Jawa Barat 41175
+
+📱 Telepon/WhatsApp: 0859-2621-2815 | 0821-2688-9083
+
+(Website ini terus dikembangkan untuk memajukan pariwisata dan UMKM lokal Parakanceuri)
