@@ -59,7 +59,7 @@ nav.scrolled {
 /* Hero Section Khusus Edukasi */
 .hero-edukasi {
     /* Menggunakan overlay dengan nuansa hangat */
-    background: linear-gradient(rgba(249, 168, 37, 0.5), rgba(0, 0, 0, 0.7)), url('Infografis Agrowisata.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(249, 168, 37, 0.5), rgba(0, 0, 0, 0.7)), url('../images/hero\ edukasi.png') center/cover no-repeat;
     height: 70vh;
     display: flex;
     flex-direction: column;

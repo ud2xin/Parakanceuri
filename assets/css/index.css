@@ -59,8 +59,8 @@ nav.scrolled {
 
 /* Hero Section */
 .hero {
-    /* Pastikan gambar POSTER WISATA ALAM.jpg ada di folder yang sama */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('POSTER WISATA ALAM.jpg') center/cover no-repeat;
+    /* Path disesuaikan: keluar dari folder css, masuk ke folder images */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero\ index.jfif') center/cover no-repeat;
     height: 100vh;
     display: flex;
     flex-direction: column;

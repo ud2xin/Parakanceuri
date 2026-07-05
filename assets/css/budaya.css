@@ -59,7 +59,7 @@ nav.scrolled {
 /* Hero Section Khusus Budaya */
 .hero-budaya {
     /* Menggunakan overlay coklat hangat untuk kesan budaya */
-    background: linear-gradient(rgba(93, 64, 55, 0.6), rgba(0, 0, 0, 0.7)), url('Poster Paket Wisata Seroja EDUKASI.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(93, 64, 55, 0.6), rgba(0, 0, 0, 0.7)), url('../images/hero\ budaya.jpg') center/cover no-repeat;
     height: 70vh;
     display: flex;
     flex-direction: column;

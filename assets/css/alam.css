@@ -59,7 +59,7 @@ nav.scrolled {
 /* Hero Section Khusus Alam */
 .hero-alam {
     /* Menggunakan gambar wisata alam sebagai background */
-    background: linear-gradient(rgba(46, 125, 50, 0.5), rgba(0, 0, 0, 0.7)), url('POSTER WISATA ALAM.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(46, 125, 50, 0.5), rgba(0, 0, 0, 0.7)), url('../images/hero alam.jpg') center/cover no-repeat;
     height: 70vh;
     display: flex;
     flex-direction: column;
