@@ -1,0 +1,223 @@
+/* CSS Dasar & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #fdfbf7; /* Warna krem hangat */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigasi */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: transparent;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav.scrolled {
+    background-color: #8D6E63; /* Warna coklat/earthy saat di-scroll */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.nav-links a {
+    margin-left: 20px;
+    color: white;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #FFECB3;
+    text-decoration: underline;
+}
+
+/* Hero Section Khusus Budaya */
+.hero-budaya {
+    /* Menggunakan overlay coklat hangat untuk kesan budaya */
+    background: linear-gradient(rgba(93, 64, 55, 0.6), rgba(0, 0, 0, 0.7)), url('Poster Paket Wisata Seroja EDUKASI.jpg') center/cover no-repeat;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-budaya h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.hero-budaya p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.btn {
+    padding: 12px 30px;
+    background-color: #FFB300;
+    color: #3e2723;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    background-color: #FFA000;
+    transform: translateY(-2px);
+}
+
+/* Koleksi Budaya Section */
+.koleksi-budaya {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.koleksi-budaya h2 {
+    font-size: 2.5rem;
+    color: #5D4037;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.budaya-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.budaya-card {
+    background-color: white;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid #FFB300;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.budaya-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.budaya-card h3 {
+    font-size: 1.3rem;
+    color: #4E342E;
+    margin-bottom: 15px;
+}
+
+.budaya-card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Galeri Section */
+.galeri-budaya {
+    background-color: #EFEBE9;
+    padding: 80px 20px;
+}
+
+.galeri-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.galeri-content img {
+    width: 50%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.galeri-text {
+    width: 50%;
+}
+
+.galeri-text h2 {
+    font-size: 2.2rem;
+    color: #4E342E;
+    margin-bottom: 20px;
+}
+
+.galeri-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background-color: #4E342E;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        background-color: #8D6E63;
+    }
+    
+    .galeri-content {
+        flex-direction: column;
+    }
+
+    .galeri-content img, .galeri-text {
+        width: 100%;
+    }
+}

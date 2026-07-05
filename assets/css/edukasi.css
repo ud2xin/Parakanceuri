@@ -1,0 +1,226 @@
+/* CSS Dasar & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #FAFAFA;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigasi */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: transparent;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav.scrolled {
+    background-color: #F9A825; /* Warna kuning emas/agrikultur */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.nav-links a {
+    margin-left: 20px;
+    color: white;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #FFF9C4;
+    text-decoration: underline;
+}
+
+/* Hero Section Khusus Edukasi */
+.hero-edukasi {
+    /* Menggunakan overlay dengan nuansa hangat */
+    background: linear-gradient(rgba(249, 168, 37, 0.5), rgba(0, 0, 0, 0.7)), url('Infografis Agrowisata.jpg') center/cover no-repeat;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-edukasi h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.hero-edukasi p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.btn {
+    padding: 12px 30px;
+    background-color: #43A047; /* Tombol hijau kontras */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    background-color: #2E7D32;
+    transform: translateY(-2px);
+}
+
+/* Program Edukasi Section */
+.program-edukasi {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.program-edukasi h2 {
+    font-size: 2.5rem;
+    color: #F57F17;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edukasi-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.edukasi-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.edukasi-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    color: #2E7D32;
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Call to Action Section */
+.cta-edukasi {
+    background-color: #FFF9C4;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta-edukasi h2 {
+    color: #F57F17;
+    margin-bottom: 15px;
+}
+
+.cta-edukasi p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-outline {
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #F57F17;
+    border: 2px solid #F57F17;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: #F57F17;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: #F57F17;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        background-color: #F9A825;
+    }
+}

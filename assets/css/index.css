@@ -1,0 +1,242 @@
+/* CSS Dasar & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigasi */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: transparent;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Class tambahan saat di-scroll (diatur lewat JS) */
+nav.scrolled {
+    background-color: #4CAF50;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.nav-links a {
+    margin-left: 20px;
+    color: white;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e0f2f1;
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    /* Pastikan gambar POSTER WISATA ALAM.jpg ada di folder yang sama */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('POSTER WISATA ALAM.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 650px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.btn {
+    padding: 12px 30px;
+    background-color: #8BC34A;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    background-color: #7CB342;
+    transform: translateY(-2px);
+}
+
+/* Tentang Section */
+.tentang {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: white;
+}
+
+.tentang h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: #2E7D32;
+}
+
+.tentang p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Kategori Section */
+.kategori {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.kategori h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #2E7D32;
+}
+
+.kategori-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.card {
+    background-color: white;
+    width: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.card-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.card-btn:hover {
+    background-color: #388E3C;
+}
+
+/* Footer */
+footer {
+    background-color: #2E7D32;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.footer-info {
+    margin-bottom: 20px;
+}
+
+.footer-info h3 {
+    margin-bottom: 15px;
+}
+
+.footer-info p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        background-color: #4CAF50; /* Selalu solid di mobile agar teks terbaca */
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-links a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,200 @@
+/* CSS Dasar & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7f6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigasi */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: transparent;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav.scrolled {
+    background-color: #388E3C; /* Warna hijau yang sedikit berbeda dari beranda */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.nav-links a {
+    margin-left: 20px;
+    color: white;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #C8E6C9;
+    text-decoration: underline;
+}
+
+/* Hero Section Khusus Alam */
+.hero-alam {
+    /* Menggunakan gambar wisata alam sebagai background */
+    background: linear-gradient(rgba(46, 125, 50, 0.5), rgba(0, 0, 0, 0.7)), url('POSTER WISATA ALAM.jpg') center/cover no-repeat;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-alam h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.hero-alam p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.btn {
+    padding: 12px 30px;
+    background-color: #8BC34A;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #689F38;
+    transform: translateY(-2px);
+}
+
+/* Destinasi Section (Layout Zig-Zag) */
+.destinasi {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.destinasi h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #2E7D32;
+}
+
+.destinasi-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.destinasi-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.destinasi-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.destinasi-item img {
+    width: 50%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.destinasi-item:hover img {
+    transform: scale(1.05);
+}
+
+.item-info {
+    width: 50%;
+    padding: 40px;
+}
+
+.item-info h3 {
+    font-size: 2rem;
+    color: #388E3C;
+    margin-bottom: 15px;
+}
+
+.item-info p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background-color: #1B5E20;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        background-color: #388E3C;
+    }
+    
+    .destinasi-item, .destinasi-item.reverse {
+        flex-direction: column;
+    }
+
+    .destinasi-item img, .item-info {
+        width: 100%;
+    }
+
+    .destinasi-item img {
+        height: 250px;
+    }
+    
+    .item-info {
+        padding: 25px;
+    }
+}
