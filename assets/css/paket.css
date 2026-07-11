@@ -176,20 +176,21 @@ img {
    ========================================================================== */
 .hero {
     position: relative;
-    min-height: 58svh;
+    min-height: 78svh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--white);
-    padding: calc(var(--nav-h) + 20px) 20px 80px;
+    padding: calc(var(--nav-h) + 20px) 20px 90px;
     background:
-        linear-gradient(180deg, rgba(19,42,32,0.55) 0%, rgba(19,42,32,0.72) 55%, rgba(19,42,32,0.92) 100%),
-        url('../images/POSTER WISATA ALAM.jpg') center/cover no-repeat;
+        linear-gradient(180deg, rgba(19,42,32,0.5) 0%, rgba(19,42,32,0.68) 55%, rgba(19,42,32,0.9) 100%),
+        url('../images/hero\ paket.avif') center/cover no-repeat;
 }
 
 .hero-content {
-    max-width: 680px;
+    max-width: 720px;
     animation: hero-rise 1s var(--ease) both;
 }
 
@@ -201,10 +202,10 @@ img {
 .hero h1 {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
     line-height: 1.1;
     letter-spacing: -0.01em;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .hero h1 em {
@@ -214,10 +215,29 @@ img {
 }
 
 .hero p {
-    font-size: clamp(1rem, 1.5vw, 1.12rem);
-    margin: 0 auto;
-    max-width: 560px;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    margin: 0 auto 32px;
+    max-width: 580px;
     color: rgba(255, 255, 255, 0.9);
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 34px;
+    background-color: var(--gold-500);
+    color: var(--forest-900);
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.25s var(--ease), box-shadow 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.btn:hover {
+    background-color: var(--gold-300);
+    transform: translateY(-3px);
 }
 
 /* Signature: kontur punggung gunung */
@@ -641,6 +661,11 @@ footer {
 @media (max-width: 480px) {
     .nav-inner {
         padding: 0 18px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .alert-info {
