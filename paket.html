@@ -4,41 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paket Wisata - Kampung Wisata Parakanceuri</title>
+    <meta name="description" content="Pricelist dan paket wisata Kampung Wisata Parakanceuri: paket edukasi rombongan, wisata alam, budaya, dan agrowisata di kaki Gunung Burangrang.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/paket.css">
     <script src="assets/js/paket.js" defer></script>
 </head>
 <body>
 
+    <!-- Navigasi -->
     <nav id="navbar">
-        <div class="logo">Parakanceuri</div>
-        <div class="nav-links">
-            <a href="index.html">Beranda</a>
-            <a href="alam.html">Wisata Alam</a>
-            <a href="budaya.html">Wisata Budaya</a>
-            <a href="edukasi.html">Wisata Edukasi</a>
-            <a href="paket.html" class="active">Paket Wisata</a>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Parakanceuri</a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Beranda</a>
+                <a href="alam.html">Wisata Alam</a>
+                <a href="budaya.html">Wisata Budaya</a>
+                <a href="edukasi.html">Wisata Edukasi</a>
+                <a href="paket.html" class="current">Paket Wisata</a>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Pricelist & Paket Wisata</h1>
-            <p>Pilih paket terbaik dan rasakan pengalaman autentik "Living with Local" langsung dari kaki Gunung Burangrang.</p>
+            <span class="eyebrow">Pricelist</span>
+            <h1>Paket <em>Wisata</em></h1>
+            <p>Pilih paket terbaik dan rasakan pengalaman autentik &ldquo;Living with Local&rdquo; langsung dari kaki Gunung Burangrang.</p>
         </div>
+
+        <!-- Signature: kontur punggung Gunung Burangrang -->
+        <svg class="ridge ridge--hero" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+            <path class="ridge-line ridge-line--1" d="M0,120 L140,70 L280,100 L420,40 L600,90 L760,20 L940,80 L1100,50 L1280,95 L1440,60 L1440,140 L0,140 Z"/>
+            <path class="ridge-line ridge-line--2" d="M0,130 L160,95 L320,115 L480,75 L640,110 L820,55 L1000,100 L1180,80 L1440,105 L1440,140 L0,140 Z"/>
+            <path class="ridge-line ridge-line--3" d="M0,140 L200,118 L400,132 L620,105 L840,128 L1060,110 L1260,130 L1440,120 L1440,140 L0,140 Z"/>
+        </svg>
     </section>
 
     <section class="paket-section">
-        <h2>Pilihan Paket Wisata Eksklusif</h2>
-        
+        <div class="paket-head reveal">
+            <span class="eyebrow">Paket</span>
+            <h2>Pilihan Paket Wisata Eksklusif</h2>
+        </div>
+
         <!-- Peringatan Kuota Rombongan -->
-        <div class="alert-info">
-            <p>💡 <strong>Catatan:</strong> Paket utama dengan badge <strong>Rombongan</strong> berlaku khusus untuk jumlah peserta <strong>minimal 50 orang</strong>.</p>
+        <div class="alert-info reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+            <p><strong>Catatan:</strong> Paket utama dengan badge <strong>Rombongan</strong> berlaku khusus untuk jumlah peserta <strong>minimal 50 orang</strong>.</p>
         </div>
 
         <div class="paket-container">
 
             <!-- Paket Baru 1: 3D2N -->
-            <div class="paket-card featured">
+            <div class="paket-card featured reveal">
                 <div class="paket-badge badge-rombongan">Rombongan</div>
                 <div class="paket-header">
                     <h3>Paket Edukasi 3D2N</h3>
@@ -51,22 +78,22 @@
                 </div>
                 <div class="paket-features">
                     <ul>
-                        <li>✓ Akomodasi Homestay & Makan 6x</li>
-                        <li>✓ Edukasi Tani (Ngawuluku, Tandur, Nutu, Napi)</li>
-                        <li>✓ Ngagobyag (Tangkap Ikan Tanpa Alat)</li>
-                        <li>✓ Edukasi & Praktik UMKM (6 Jenis Produk)</li>
-                        <li>✓ Kaulinan Lembur & Malam Pentas Seni + Api Unggun</li>
-                        <li>✓ Tracking Curug Cilamaya & Oleh-oleh UMKM</li>
-                        <li>✓ Include: Soft Copy Handbook, Plakat, & Parkir Bus</li>
+                        <li>Akomodasi Homestay &amp; Makan 6x</li>
+                        <li>Edukasi Tani (Ngawuluku, Tandur, Nutu, Napi)</li>
+                        <li>Ngagobyag (Tangkap Ikan Tanpa Alat)</li>
+                        <li>Edukasi &amp; Praktik UMKM (6 Jenis Produk)</li>
+                        <li>Kaulinan Lembur &amp; Malam Pentas Seni + Api Unggun</li>
+                        <li>Tracking Curug Cilamaya &amp; Oleh-oleh UMKM</li>
+                        <li>Include: Soft Copy Handbook, Plakat, &amp; Parkir Bus</li>
                     </ul>
                 </div>
                 <div class="paket-footer">
-                    <button type="button" class="btn-booking" onclick="selectPackage('3D2N', 600000, 'Paket Edukasi 3D2N')">Pilih & Hitung Biaya</button>
+                    <a href="https://wa.me/6285926212815?text=Halo%20Parakanceuri%2C%20saya%20ingin%20booking%20Paket%20Edukasi%203D2N%20(Rombongan%2C%20minimal%2050%20orang).%20Mohon%20info%20ketersediaan%20tanggal." target="_blank" class="btn-booking">Booking Sekarang</a>
                 </div>
             </div>
 
             <!-- Paket Baru 2: 2D1N -->
-            <div class="paket-card">
+            <div class="paket-card reveal">
                 <div class="paket-badge badge-rombongan">Rombongan</div>
                 <div class="paket-header">
                     <h3>Paket Edukasi 2D1N</h3>
@@ -79,21 +106,21 @@
                 </div>
                 <div class="paket-features">
                     <ul>
-                        <li>✓ Akomodasi Homestay & Makan 4x</li>
-                        <li>✓ Edukasi Tani Tradisional & Ngagobyag</li>
-                        <li>✓ Edukasi & Praktik UMKM (4 Jenis Produk)</li>
-                        <li>✓ Kaulinan Lembur & Malam Pentas Seni + Api Unggun</li>
-                        <li>✓ Include: Soft Copy Handbook, Plakat, & Parkir Bus</li>
-                        <li>✓ Fasilitas Pengangkutan Barang dari Parkiran</li>
+                        <li>Akomodasi Homestay &amp; Makan 4x</li>
+                        <li>Edukasi Tani Tradisional &amp; Ngagobyag</li>
+                        <li>Edukasi &amp; Praktik UMKM (4 Jenis Produk)</li>
+                        <li>Kaulinan Lembur &amp; Malam Pentas Seni + Api Unggun</li>
+                        <li>Include: Soft Copy Handbook, Plakat, &amp; Parkir Bus</li>
+                        <li>Fasilitas Pengangkutan Barang dari Parkiran</li>
                     </ul>
                 </div>
                 <div class="paket-footer">
-                    <button type="button" class="btn-booking" onclick="selectPackage('2D1N', 475000, 'Paket Edukasi 2D1N')">Pilih & Hitung Biaya</button>
+                    <a href="https://wa.me/6285926212815?text=Halo%20Parakanceuri%2C%20saya%20ingin%20booking%20Paket%20Edukasi%202D1N%20(Rombongan%2C%20minimal%2050%20orang).%20Mohon%20info%20ketersediaan%20tanggal." target="_blank" class="btn-booking">Booking Sekarang</a>
                 </div>
             </div>
 
             <!-- Paket Baru 3: One Day Trip Edukasi -->
-            <div class="paket-card">
+            <div class="paket-card reveal">
                 <div class="paket-badge badge-rombongan">Rombongan</div>
                 <div class="paket-header">
                     <h3>One Day Trip Edukasi</h3>
@@ -106,21 +133,21 @@
                 </div>
                 <div class="paket-features">
                     <ul>
-                        <li>✓ Fasilitas Makan 1x</li>
-                        <li>✓ Edukasi & Praktik Tandur (Tanam Padi)</li>
-                        <li>✓ Ngagobyag (Tangkap Ikan di Kolam)</li>
-                        <li>✓ Atraksi Kaulinan Lembur Tradisional</li>
-                        <li>✓ Edukasi & Praktik UMKM (3 Jenis Produk)</li>
-                        <li>✓ Include: Soft Copy Handbook & Parkir Bus</li>
+                        <li>Fasilitas Makan 1x</li>
+                        <li>Edukasi &amp; Praktik Tandur (Tanam Padi)</li>
+                        <li>Ngagobyag (Tangkap Ikan di Kolam)</li>
+                        <li>Atraksi Kaulinan Lembur Tradisional</li>
+                        <li>Edukasi &amp; Praktik UMKM (3 Jenis Produk)</li>
+                        <li>Include: Soft Copy Handbook &amp; Parkir Bus</li>
                     </ul>
                 </div>
                 <div class="paket-footer">
-                    <button type="button" class="btn-booking" onclick="selectPackage('ODT_50', 200000, 'One Day Trip Edukasi (50 Pax)')">Pilih & Hitung Biaya</button>
+                    <a href="https://wa.me/6285926212815?text=Halo%20Parakanceuri%2C%20saya%20ingin%20booking%20One%20Day%20Trip%20Edukasi%20(Rombongan%2C%20minimal%2050%20orang).%20Mohon%20info%20ketersediaan%20tanggal." target="_blank" class="btn-booking">Booking Sekarang</a>
                 </div>
             </div>
 
             <!-- Kartu Lama 1: Hidden Calm Cilamaya -->
-            <div class="paket-card">
+            <div class="paket-card reveal">
                 <div class="paket-badge badge-alam">Wisata Alam</div>
                 <div class="paket-header">
                     <h3>Hidden Calm Cilamaya</h3>
@@ -133,11 +160,11 @@
                 </div>
                 <div class="paket-features">
                     <ul>
-                        <li>✓ Jelajah Alam & Orientasi Jalur</li>
-                        <li>✓ Trekking Santai & Udara Sejuk</li>
-                        <li>✓ Eksplorasi & Bermain di Curug Cilamaya</li>
-                        <li>✓ Istirahat Santai di Saung (Free Time)</li>
-                        <li>💡 <em>Add-on: Makan Siang & Iteuk (Trekking Pole)</em></li>
+                        <li>Jelajah Alam &amp; Orientasi Jalur</li>
+                        <li>Trekking Santai &amp; Udara Sejuk</li>
+                        <li>Eksplorasi &amp; Bermain di Curug Cilamaya</li>
+                        <li>Istirahat Santai di Saung (Free Time)</li>
+                        <li class="note"><em>Add-on: Makan Siang &amp; Iteuk (Trekking Pole)</em></li>
                     </ul>
                 </div>
                 <div class="paket-footer">
@@ -146,11 +173,11 @@
             </div>
 
             <!-- Kartu Lama 2: Promo Grup Budaya -->
-            <div class="paket-card">
+            <div class="paket-card reveal">
                 <div class="paket-badge badge-budaya">Wisata Budaya</div>
                 <div class="paket-header">
                     <h3>Promo Grup Budaya</h3>
-                    <p class="sub-title">Pelestarian Tradisi & Seni Sunda</p>
+                    <p class="sub-title">Pelestarian Tradisi &amp; Seni Sunda</p>
                 </div>
                 <div class="paket-price">
                     <span class="currency">Rp</span>
@@ -159,11 +186,11 @@
                 </div>
                 <div class="paket-features">
                     <ul>
-                        <li>✓ Minimal Pemesanan 10 Pax</li>
-                        <li>✓ Kesenian Angklung & Tutunggulan</li>
-                        <li>✓ Permainan Tradisional (Egrang & Bakiak)</li>
-                        <li>✓ Didampingi Guide Berpengalaman</li>
-                        <li>✓ Termasuk Asuransi Keselamatan</li>
+                        <li>Minimal Pemesanan 10 Pax</li>
+                        <li>Kesenian Angklung &amp; Tutunggulan</li>
+                        <li>Permainan Tradisional (Egrang &amp; Bakiak)</li>
+                        <li>Didampingi Guide Berpengalaman</li>
+                        <li>Termasuk Asuransi Keselamatan</li>
                     </ul>
                 </div>
                 <div class="paket-footer">
@@ -172,11 +199,11 @@
             </div>
 
             <!-- Kartu Lama 3: Seroja Experience -->
-            <div class="paket-card">
+            <div class="paket-card reveal">
                 <div class="paket-badge badge-edukasi">Wisata Edukasi</div>
                 <div class="paket-header">
                     <h3>Seroja Experience</h3>
-                    <p class="sub-title">Edukasi & Workshop UMKM Lokal</p>
+                    <p class="sub-title">Edukasi &amp; Workshop UMKM Lokal</p>
                 </div>
                 <div class="paket-price">
                     <span class="currency">Rp</span>
@@ -185,11 +212,11 @@
                 </div>
                 <div class="paket-features">
                     <ul>
-                        <li>✓ Praktik Membuat Kue Seroja Otentik</li>
-                        <li>✓ Pengenalan Olahan Produk UMKM</li>
-                        <li>✓ Edukasi Nilai Entrepreneurship</li>
-                        <li>✓ Cicip Rasa Kuliner Khas Tradisional</li>
-                        <li>✓ Didampingi Langsung oleh Warga Lokal</li>
+                        <li>Praktik Membuat Kue Seroja Otentik</li>
+                        <li>Pengenalan Olahan Produk UMKM</li>
+                        <li>Edukasi Nilai Entrepreneurship</li>
+                        <li>Cicip Rasa Kuliner Khas Tradisional</li>
+                        <li>Didampingi Langsung oleh Warga Lokal</li>
                     </ul>
                 </div>
                 <div class="paket-footer">
@@ -198,7 +225,7 @@
             </div>
 
             <!-- Kartu Lama 4: Rimba Racik Trip -->
-            <div class="paket-card">
+            <div class="paket-card reveal">
                 <div class="paket-badge badge-agro">Agrowisata</div>
                 <div class="paket-header">
                     <h3>Rimba Racik Trip</h3>
@@ -211,11 +238,11 @@
                 </div>
                 <div class="paket-features">
                     <ul>
-                        <li>✓ Light Trekking Kebun Teh & Kopi</li>
-                        <li>✓ Edukasi Sejarah & Praktik Olah Teh</li>
-                        <li>✓ Workshop Seduh Kopi (Tubruk & V60)</li>
-                        <li>✓ Include: Guide, Snack, & Air Mineral</li>
-                        <li>✓ Free: Makan Nasi Liwet & Bingkisan</li>
+                        <li>Light Trekking Kebun Teh &amp; Kopi</li>
+                        <li>Edukasi Sejarah &amp; Praktik Olah Teh</li>
+                        <li>Workshop Seduh Kopi (Tubruk &amp; V60)</li>
+                        <li>Include: Guide, Snack, &amp; Air Mineral</li>
+                        <li>Free: Makan Nasi Liwet &amp; Bingkisan</li>
                     </ul>
                 </div>
                 <div class="paket-footer">
@@ -225,48 +252,48 @@
 
         </div>
 
-        <!-- Section Tambahan: Kalkulator Estimasi Biaya Rombongan -->
-        <div class="calculator-section" id="kalkulator">
-            <h2>🧮 Kalkulator Estimasi Biaya Rombongan</h2>
-            <p>Silakan klik tombol "Pilih & Hitung Biaya" pada salah satu paket rombongan di atas untuk memulai simulasi.</p>
-            <div class="calc-form">
-                <div class="form-group">
-                    <label for="selected-pkg">Paket Terpilih:</label>
-                    <input type="text" id="selected-pkg" readonly placeholder="Belum ada paket yang dipilih">
-                </div>
-                <div class="form-group">
-                    <label for="pax-count">Jumlah Peserta (Minimal 50):</label>
-                    <input type="number" id="pax-count" min="1" value="50">
-                </div>
-                <button type="button" class="btn-calc" onclick="calculateTotal()">Hitung Total</button>
-            </div>
-            <div id="calc-result" class="calc-result hidden"></div>
-        </div>
-
         <!-- Informasi Add-on / Paket Opsional -->
-        <div class="opsional-container">
-            <h3>➕ Opsi Tambahan & Layanan Khusus (By Request)</h3>
+        <div class="opsional-container reveal">
+            <h3>Opsi Tambahan &amp; Layanan Khusus (By Request)</h3>
             <p>Sempurnakan agenda kunjungan Anda dengan berbagai fasilitas tambahan menarik:</p>
             <div class="opsional-grid">
-                <div class="opsional-item">▪ Snack Tradisional (Seuseupanana) + Bajigur hangat</div>
-                <div class="opsional-item">▪ Paket Camping / Family Gathering / Outdoor Training</div>
-                <div class="opsional-item">▪ Aktivitas Berenang & Rekreasi Air</div>
-                <div class="opsional-item">▪ Gala Dinner Eksklusif di Saung Manglid</div>
-                <div class="opsional-item">▪ Paket Durasi Panjang Khusus Kustom: 4D3N & 5D4N</div>
+                <div class="opsional-item">Snack Tradisional (Seuseupanana) + Bajigur hangat</div>
+                <div class="opsional-item">Paket Camping / Family Gathering / Outdoor Training</div>
+                <div class="opsional-item">Aktivitas Berenang &amp; Rekreasi Air</div>
+                <div class="opsional-item">Gala Dinner Eksklusif di Saung Manglid</div>
+                <div class="opsional-item">Paket Durasi Panjang Khusus Kustom: 4D3N &amp; 5D4N</div>
             </div>
         </div>
 
     </section>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-info">
-            <h3>Kampung Wisata Parakanceuri</h3>
-            <p>Desa Pusakamulya, Kiarapedes, Purwakarta, Jawa Barat 41175</p>
-            <p>Telepon: 0859-2621-2815 | 0821-2688-9083</p>
-            <p>Email: kampungwisata.parakanceuri@gmail.com</p>
-            <p>Instagram: @kampungwisata_parakanceuri</p>
+        <svg class="ridge ridge--footer" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+            <path class="ridge-line ridge-line--1" d="M0,20 L140,70 L280,40 L420,100 L600,50 L760,120 L940,60 L1100,90 L1280,45 L1440,80 L1440,0 L0,0 Z"/>
+            <path class="ridge-line ridge-line--2" d="M0,10 L160,45 L320,25 L480,65 L640,30 L820,85 L1000,40 L1180,60 L1440,35 L1440,0 L0,0 Z"/>
+        </svg>
+
+        <div class="footer-inner">
+            <div class="footer-info">
+                <h3>Kampung Wisata Parakanceuri</h3>
+                <p>Desa Pusakamulya, Kiarapedes, Purwakarta, Jawa Barat 41175</p>
+                <p>Telepon: 0859-2621-2815 &middot; 0821-2688-9083</p>
+                <p>Email: kampungwisata.parakanceuri@gmail.com</p>
+                <p>Instagram: @kampungwisata_parakanceuri</p>
+            </div>
+
+            <div class="footer-nav">
+                <span class="footer-nav-title">Jelajahi</span>
+                <a href="index.html">Beranda</a>
+                <a href="alam.html">Wisata Alam</a>
+                <a href="budaya.html">Wisata Budaya</a>
+                <a href="edukasi.html">Wisata Edukasi</a>
+                <a href="paket.html">Paket Wisata</a>
+            </div>
         </div>
-        <p>&copy; 2026 Kampung Wisata Parakanceuri. All rights reserved.</p>
+
+        <p class="footer-copy">&copy; 2026 Kampung Wisata Parakanceuri. All rights reserved.</p>
     </footer>
 
 </body>
