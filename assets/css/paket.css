@@ -1,4 +1,6 @@
-/* CSS Dasar & Reset */
+/* ==========================================================================
+   1. CSS Dasar & Reset 
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +19,9 @@ a {
     color: inherit;
 }
 
-/* Navigasi */
+/* ==========================================================================
+   2. Navigasi (Navbar)
+   ========================================================================== */
 nav {
     display: flex;
     justify-content: space-between;
@@ -56,7 +60,9 @@ nav.scrolled {
     padding-bottom: 5px;
 }
 
-/* Hero Section */
+/* ==========================================================================
+   3. Hero Section
+   ========================================================================== */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/POSTER WISATA ALAM.jpg') center/cover no-repeat;
     height: 50vh;
@@ -80,7 +86,9 @@ nav.scrolled {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* Section Paket */
+/* ==========================================================================
+   4. Section & Container Paket
+   ========================================================================== */
 .paket-section {
     padding: 70px 20px;
     text-align: center;
@@ -89,10 +97,20 @@ nav.scrolled {
 .paket-section h2 {
     font-size: 2.3rem;
     color: #2E7D32;
-    margin-bottom: 55px;
+    margin-bottom: 35px;
 }
 
-/* Layout Grid Fleksibel untuk 4 Card */
+/* Alert Info Kuota */
+.alert-info {
+    background-color: #e8f5e9;
+    border-left: 5px solid #2E7D32;
+    padding: 15px;
+    max-width: 1250px;
+    margin: 0 auto 35px auto;
+    border-radius: 4px;
+    text-align: left;
+}
+
 .paket-container {
     display: flex;
     flex-wrap: wrap;
@@ -102,7 +120,9 @@ nav.scrolled {
     margin: 0 auto;
 }
 
-/* Card Paket */
+/* ==========================================================================
+   5. Komponen Kartu Paket (Cards)
+   ========================================================================== */
 .paket-card {
     background: white;
     border-radius: 15px;
@@ -121,7 +141,7 @@ nav.scrolled {
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-/* Highlight Card Budaya (Featured) */
+/* Highlight Card (Featured) */
 .paket-card.featured {
     border: 3px solid #FF9800;
     transform: scale(1.02);
@@ -130,7 +150,7 @@ nav.scrolled {
     transform: scale(1.02) translateY(-10px);
 }
 
-/* Badges Berdasarkan File Proyek */
+/* Badges Kategori Wisata */
 .paket-badge {
     position: absolute;
     top: -14px;
@@ -148,8 +168,9 @@ nav.scrolled {
 .badge-budaya { background-color: #FF9800; }
 .badge-edukasi { background-color: #E91E63; }
 .badge-agro { background-color: #4CAF50; }
+.badge-rombongan { background-color: #673AB7; } /* Ungu Rombongan */
 
-/* Tipografi Card */
+/* Isi Konten Card */
 .paket-header h3 {
     font-size: 1.4rem;
     color: #222;
@@ -193,7 +214,7 @@ nav.scrolled {
     margin-top: 2px;
 }
 
-/* Daftar Fasilitas */
+/* Daftar Fasilitas Card */
 .paket-features {
     text-align: left;
     margin-bottom: 30px;
@@ -211,18 +232,21 @@ nav.scrolled {
     line-height: 1.4;
 }
 
-/* Tombol Aksi */
+/* Tombol Booking / Aksi di Card */
 .btn-booking {
     display: block;
     width: 100%;
     padding: 12px 5px;
     background-color: #4CAF50;
     color: white;
+    border: none;
     border-radius: 25px;
     font-weight: bold;
     font-size: 0.95rem;
     text-align: center;
     transition: background-color 0.3s;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 .btn-booking:hover {
@@ -236,7 +260,136 @@ nav.scrolled {
     background-color: #E65100;
 }
 
-/* Footer Section */
+/* ==========================================================================
+   6. Section Kalkulator Simulasi Biaya
+   ========================================================================== */
+.calculator-section {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 25px;
+    max-width: 850px;
+    margin: 60px auto 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.calculator-section h2 {
+    font-size: 1.8rem;
+    color: #2E7D32;
+    margin-bottom: 10px;
+}
+
+.calc-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #4CAF50;
+}
+
+.btn-calc {
+    padding: 12px 35px;
+    background-color: #2E7D32;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 46px;
+}
+
+.btn-calc:hover {
+    background-color: #1B5E20;
+}
+
+.calc-result {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.calc-result.success {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #c8e6c9;
+}
+
+.calc-result.warning {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ==========================================================================
+   7. Container Layanan Tambahan (Opsional)
+   ========================================================================== */
+.opsional-container {
+    max-width: 850px;
+    margin: 50px auto 0 auto;
+    text-align: left;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.opsional-container h3 {
+    color: #2E7D32;
+    margin-bottom: 10px;
+}
+
+.opsional-grid {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.opsional-item {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* ==========================================================================
+   8. Footer Section
+   ========================================================================== */
 footer {
     background-color: #2E7D32;
     color: white;
@@ -258,7 +411,9 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Responsivitas Layar */
+/* ==========================================================================
+   9. Responsivitas Layar (Media Queries)
+   ========================================================================== */
 @media (max-width: 992px) {
     .paket-card {
         width: 45%;

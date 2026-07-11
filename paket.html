@@ -29,8 +29,97 @@
 
     <section class="paket-section">
         <h2>Pilihan Paket Wisata Eksklusif</h2>
+        
+        <!-- Peringatan Kuota Rombongan -->
+        <div class="alert-info">
+            <p>💡 <strong>Catatan:</strong> Paket utama dengan badge <strong>Rombongan</strong> berlaku khusus untuk jumlah peserta <strong>minimal 50 orang</strong>.</p>
+        </div>
+
         <div class="paket-container">
 
+            <!-- Paket Baru 1: 3D2N -->
+            <div class="paket-card featured">
+                <div class="paket-badge badge-rombongan">Rombongan</div>
+                <div class="paket-header">
+                    <h3>Paket Edukasi 3D2N</h3>
+                    <p class="sub-title">3 Hari 2 Malam (Min. 50 Pax)</p>
+                </div>
+                <div class="paket-price">
+                    <span class="currency">Rp</span>
+                    <span class="amount">600.000</span>
+                    <span class="pax">/ orang</span>
+                </div>
+                <div class="paket-features">
+                    <ul>
+                        <li>✓ Akomodasi Homestay & Makan 6x</li>
+                        <li>✓ Edukasi Tani (Ngawuluku, Tandur, Nutu, Napi)</li>
+                        <li>✓ Ngagobyag (Tangkap Ikan Tanpa Alat)</li>
+                        <li>✓ Edukasi & Praktik UMKM (6 Jenis Produk)</li>
+                        <li>✓ Kaulinan Lembur & Malam Pentas Seni + Api Unggun</li>
+                        <li>✓ Tracking Curug Cilamaya & Oleh-oleh UMKM</li>
+                        <li>✓ Include: Soft Copy Handbook, Plakat, & Parkir Bus</li>
+                    </ul>
+                </div>
+                <div class="paket-footer">
+                    <button type="button" class="btn-booking" onclick="selectPackage('3D2N', 600000, 'Paket Edukasi 3D2N')">Pilih & Hitung Biaya</button>
+                </div>
+            </div>
+
+            <!-- Paket Baru 2: 2D1N -->
+            <div class="paket-card">
+                <div class="paket-badge badge-rombongan">Rombongan</div>
+                <div class="paket-header">
+                    <h3>Paket Edukasi 2D1N</h3>
+                    <p class="sub-title">2 Hari 1 Malam (Min. 50 Pax)</p>
+                </div>
+                <div class="paket-price">
+                    <span class="currency">Rp</span>
+                    <span class="amount">475.000</span>
+                    <span class="pax">/ orang</span>
+                </div>
+                <div class="paket-features">
+                    <ul>
+                        <li>✓ Akomodasi Homestay & Makan 4x</li>
+                        <li>✓ Edukasi Tani Tradisional & Ngagobyag</li>
+                        <li>✓ Edukasi & Praktik UMKM (4 Jenis Produk)</li>
+                        <li>✓ Kaulinan Lembur & Malam Pentas Seni + Api Unggun</li>
+                        <li>✓ Include: Soft Copy Handbook, Plakat, & Parkir Bus</li>
+                        <li>✓ Fasilitas Pengangkutan Barang dari Parkiran</li>
+                    </ul>
+                </div>
+                <div class="paket-footer">
+                    <button type="button" class="btn-booking" onclick="selectPackage('2D1N', 475000, 'Paket Edukasi 2D1N')">Pilih & Hitung Biaya</button>
+                </div>
+            </div>
+
+            <!-- Paket Baru 3: One Day Trip Edukasi -->
+            <div class="paket-card">
+                <div class="paket-badge badge-rombongan">Rombongan</div>
+                <div class="paket-header">
+                    <h3>One Day Trip Edukasi</h3>
+                    <p class="sub-title">Edukasi Terintegrasi (Min. 50 Pax)</p>
+                </div>
+                <div class="paket-price">
+                    <span class="currency">Rp</span>
+                    <span class="amount">200.000</span>
+                    <span class="pax">/ orang</span>
+                </div>
+                <div class="paket-features">
+                    <ul>
+                        <li>✓ Fasilitas Makan 1x</li>
+                        <li>✓ Edukasi & Praktik Tandur (Tanam Padi)</li>
+                        <li>✓ Ngagobyag (Tangkap Ikan di Kolam)</li>
+                        <li>✓ Atraksi Kaulinan Lembur Tradisional</li>
+                        <li>✓ Edukasi & Praktik UMKM (3 Jenis Produk)</li>
+                        <li>✓ Include: Soft Copy Handbook & Parkir Bus</li>
+                    </ul>
+                </div>
+                <div class="paket-footer">
+                    <button type="button" class="btn-booking" onclick="selectPackage('ODT_50', 200000, 'One Day Trip Edukasi (50 Pax)')">Pilih & Hitung Biaya</button>
+                </div>
+            </div>
+
+            <!-- Kartu Lama 1: Hidden Calm Cilamaya -->
             <div class="paket-card">
                 <div class="paket-badge badge-alam">Wisata Alam</div>
                 <div class="paket-header">
@@ -56,7 +145,8 @@
                 </div>
             </div>
 
-            <div class="paket-card featured">
+            <!-- Kartu Lama 2: Promo Grup Budaya -->
+            <div class="paket-card">
                 <div class="paket-badge badge-budaya">Wisata Budaya</div>
                 <div class="paket-header">
                     <h3>Promo Grup Budaya</h3>
@@ -81,6 +171,7 @@
                 </div>
             </div>
 
+            <!-- Kartu Lama 3: Seroja Experience -->
             <div class="paket-card">
                 <div class="paket-badge badge-edukasi">Wisata Edukasi</div>
                 <div class="paket-header">
@@ -106,6 +197,7 @@
                 </div>
             </div>
 
+            <!-- Kartu Lama 4: Rimba Racik Trip -->
             <div class="paket-card">
                 <div class="paket-badge badge-agro">Agrowisata</div>
                 <div class="paket-header">
@@ -132,6 +224,38 @@
             </div>
 
         </div>
+
+        <!-- Section Tambahan: Kalkulator Estimasi Biaya Rombongan -->
+        <div class="calculator-section" id="kalkulator">
+            <h2>🧮 Kalkulator Estimasi Biaya Rombongan</h2>
+            <p>Silakan klik tombol "Pilih & Hitung Biaya" pada salah satu paket rombongan di atas untuk memulai simulasi.</p>
+            <div class="calc-form">
+                <div class="form-group">
+                    <label for="selected-pkg">Paket Terpilih:</label>
+                    <input type="text" id="selected-pkg" readonly placeholder="Belum ada paket yang dipilih">
+                </div>
+                <div class="form-group">
+                    <label for="pax-count">Jumlah Peserta (Minimal 50):</label>
+                    <input type="number" id="pax-count" min="1" value="50">
+                </div>
+                <button type="button" class="btn-calc" onclick="calculateTotal()">Hitung Total</button>
+            </div>
+            <div id="calc-result" class="calc-result hidden"></div>
+        </div>
+
+        <!-- Informasi Add-on / Paket Opsional -->
+        <div class="opsional-container">
+            <h3>➕ Opsi Tambahan & Layanan Khusus (By Request)</h3>
+            <p>Sempurnakan agenda kunjungan Anda dengan berbagai fasilitas tambahan menarik:</p>
+            <div class="opsional-grid">
+                <div class="opsional-item">▪ Snack Tradisional (Seuseupanana) + Bajigur hangat</div>
+                <div class="opsional-item">▪ Paket Camping / Family Gathering / Outdoor Training</div>
+                <div class="opsional-item">▪ Aktivitas Berenang & Rekreasi Air</div>
+                <div class="opsional-item">▪ Gala Dinner Eksklusif di Saung Manglid</div>
+                <div class="opsional-item">▪ Paket Durasi Panjang Khusus Kustom: 4D3N & 5D4N</div>
+            </div>
+        </div>
+
     </section>
 
     <footer>
