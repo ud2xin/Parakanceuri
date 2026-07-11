@@ -122,14 +122,14 @@ img {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .nav-links a {
-    padding: 8px 16px;
+    padding: 8px 14px;
     color: rgba(255, 255, 255, 0.88);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     border-radius: 30px;
     transition: color 0.25s ease, background-color 0.25s ease;
     white-space: nowrap;
@@ -542,6 +542,11 @@ footer {
 @media (max-width: 1024px) {
     .kategori-container {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .nav-links a {
+        padding: 8px 10px;
+        font-size: 0.88rem;
     }
 }
 
