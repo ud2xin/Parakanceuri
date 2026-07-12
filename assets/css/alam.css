@@ -400,11 +400,31 @@ footer {
     margin-bottom: 16px;
 }
 
-.footer-info p {
-    margin: 6px 0;
-    font-size: 0.94rem;
-    color: rgba(255, 255, 255, 0.72);
+.footer-info p{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:10px 0;
 }
+
+.footer-icon{
+    width:20px;
+    height:20px;
+    min-width:20px;
+    min-height:20px;
+    color:var(--gold-300);
+    flex-shrink:0;
+}
+
+.footer-info a{
+    color:rgba(255,255,255,.72);
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer-info a:hover{
+    color:var(--gold-300);
+}      
 
 .footer-nav {
     display: flex;
