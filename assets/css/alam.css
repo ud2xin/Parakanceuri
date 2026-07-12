@@ -543,7 +543,7 @@ footer {
         padding-top: calc(var(--nav-h) + 30px);
     }
 
-        .destinasi-item,
+    .destinasi-item,
     .destinasi-item.reverse{
         flex-direction: column;
     }
