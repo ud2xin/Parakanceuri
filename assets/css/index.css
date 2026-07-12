@@ -497,17 +497,17 @@ footer {
 .footer-info p{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
     margin:10px 0;
+    font-size:clamp(.88rem, 1.4vw, .98rem);
 }
 
 .footer-icon{
-    width:20px;
-    height:20px;
-    min-width:20px;
-    min-height:20px;
-    color:var(--gold-300);
-    flex-shrink:0;
+    width: clamp(16px, 2vw, 20px);
+    height: clamp(16px, 2vw, 20px);
+    min-width: clamp(16px, 2vw, 20px);
+    color: var(--gold-300);
+    flex-shrink: 0;
 }
 
 .footer-info a{
@@ -618,6 +618,16 @@ footer {
     .footer-inner {
         flex-direction: column;
         gap: 30px;
+    }
+
+    .footer-info p{
+        gap:8px;
+    }
+
+    .footer-icon{
+        width:18px;
+        height:18px;
+        min-width:18px;
     }
 }
 
