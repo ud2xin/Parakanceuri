@@ -543,6 +543,25 @@ footer {
         padding-top: calc(var(--nav-h) + 30px);
     }
 
+        .destinasi-item,
+    .destinasi-item.reverse{
+        flex-direction: column;
+    }
+
+    .destinasi-media,
+    .item-info{
+        width:100%;
+    }
+
+    .destinasi-media img{
+        min-height:220px;
+        height:220px;
+    }
+
+    .item-info{
+        padding:24px;
+    }
+
     .footer-inner {
         flex-direction: column;
         gap: 30px;
