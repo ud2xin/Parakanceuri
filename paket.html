@@ -12,7 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/paket.css">
-    <script src="assets/js/paket.js" defer></script>
+    <link rel="stylesheet" href="assets/css/interactive.css">
+    <script src="assets/js/interactive.js" defer></script>
 </head>
 <body>
 
@@ -62,6 +63,42 @@
         <div class="alert-info reveal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
             <p><strong>Catatan:</strong> Paket utama dengan badge <strong>Rombongan</strong> berlaku khusus untuk jumlah peserta <strong>minimal 50 orang</strong>.</p>
+        </div>
+
+        <!-- Kalkulator Estimasi Biaya -->
+        <div class="kalkulator reveal" id="kalkulator">
+            <div class="kalkulator-head">
+                <span class="eyebrow">Simulasi</span>
+                <h3>Kalkulator Estimasi Biaya</h3>
+                <p>Pilih paket dan masukkan jumlah peserta untuk melihat estimasi total biaya, lalu lanjutkan booking langsung via WhatsApp.</p>
+            </div>
+            <div class="kalkulator-body">
+                <div class="kalkulator-field">
+                    <label for="calcPaket">Pilih Paket</label>
+                    <select id="calcPaket">
+                        <option data-harga="600000" data-min="50" data-wa="6285926212815" data-nama="Paket Edukasi 3D2N">Paket Edukasi 3D2N — Rp600.000/orang (Min. 50 Pax)</option>
+                        <option data-harga="475000" data-min="50" data-wa="6285926212815" data-nama="Paket Edukasi 2D1N">Paket Edukasi 2D1N — Rp475.000/orang (Min. 50 Pax)</option>
+                        <option data-harga="200000" data-min="50" data-wa="6285926212815" data-nama="One Day Trip Edukasi">One Day Trip Edukasi — Rp200.000/orang (Min. 50 Pax)</option>
+                        <option data-harga="65000" data-min="1" data-wa="6282126889083" data-nama="Hidden Calm Cilamaya">Hidden Calm Cilamaya — Rp65.000/orang</option>
+                        <option data-harga="153000" data-min="10" data-wa="6285926212815" data-nama="Promo Grup Budaya">Promo Grup Budaya — Rp153.000/orang (Min. 10 Pax)</option>
+                        <option data-harga="128000" data-min="20" data-wa="6285926212815" data-nama="Seroja Experience">Seroja Experience — Rp128.000/orang (Min. 20 Pax)</option>
+                        <option data-harga="168000" data-min="10" data-wa="6285926212815" data-nama="Rimba Racik Trip">Rimba Racik Trip — Rp168.000/orang (Min. 10 Pax)</option>
+                    </select>
+                </div>
+                <div class="kalkulator-field">
+                    <label for="calcJumlah">Jumlah Peserta</label>
+                    <input type="number" id="calcJumlah" min="1" value="50" inputmode="numeric">
+                </div>
+            </div>
+            <div class="kalkulator-result">
+                <div class="kalkulator-total">
+                    <span>Estimasi Total</span>
+                    <strong id="calcTotal">Rp 0</strong>
+                </div>
+                <p class="kalkulator-warning" id="calcWarning" hidden></p>
+                <a href="#" id="calcWaBtn" class="btn-booking" target="_blank">Booking via WhatsApp</a>
+            </div>
+            <p class="kalkulator-note">*Estimasi bersifat simulasi awal. Harga final &amp; ketersediaan tanggal tetap perlu dikonfirmasi via WhatsApp.</p>
         </div>
 
         <div class="paket-container">

@@ -1,0 +1,477 @@
+/* ==========================================================================
+   Parakanceuri — Interactive Layer
+   Lapisan tambahan: animasi, lightbox, tombol mengambang, kalkulator, dsb.
+   File ini dipakai bersama di seluruh halaman (index, alam, budaya, edukasi, paket).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Util
+   -------------------------------------------------------------------------- */
+.hidden-el { display: none !important; }
+
+/* --------------------------------------------------------------------------
+   0.1 Sticky footer — footer selalu menempel di bawah, tidak ada spasi
+        kosong lagi walau konten halaman pendek dari tinggi layar.
+   -------------------------------------------------------------------------- */
+html, body { height: 100%; }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+body > footer {
+    margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   1. Progress bar scroll (garis tipis di atas layar)
+   -------------------------------------------------------------------------- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    z-index: 1200;
+    pointer-events: none;
+}
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+    box-shadow: 0 0 8px rgba(217, 164, 65, 0.6);
+    transition: width 0.1s linear;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tombol Kembali ke Atas (dengan ring progress scroll)
+   -------------------------------------------------------------------------- */
+.floating-actions {
+    position: fixed;
+    right: 20px;
+    bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    z-index: 950;
+    transition: transform 0.15s linear;
+    /* --footer-shift diset lewat JS: seberapa banyak footer sudah kelihatan,
+       supaya kedua tombol otomatis naik dan tidak menutupi konten footer. */
+    transform: translateY(calc(var(--footer-shift, 0px) * -1));
+}
+
+.back-to-top {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--forest-900);
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-card);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.7);
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
+}
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+.back-to-top:hover { background: var(--forest-700); }
+
+.back-to-top-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+.back-to-top-ring .ring-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.16);
+    stroke-width: 2.5;
+}
+.back-to-top-ring .ring-progress {
+    fill: none;
+    stroke: var(--gold-500);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 131.9;
+    stroke-dashoffset: 131.9;
+    transition: stroke-dashoffset 0.1s linear;
+}
+.back-to-top svg.icon-arrow {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    color: var(--cream-100);
+    z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   3. Tombol WhatsApp Mengambang
+   -------------------------------------------------------------------------- */
+.float-wa {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 26px -10px rgba(37, 211, 102, 0.7);
+    transition: transform 0.25s var(--ease);
+}
+.float-wa svg { width: 25px; height: 25px; }
+.float-wa:hover { transform: scale(1.08); }
+.float-wa::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #25D366;
+    opacity: 0.55;
+    animation: waPulse 2.4s ease-out infinite;
+    z-index: -1;
+}
+@keyframes waPulse {
+    0%   { transform: scale(1);   opacity: 0.55; }
+    100% { transform: scale(1.9); opacity: 0; }
+}
+
+@media (max-width: 640px) {
+    .floating-actions { right: 14px; bottom: 16px; gap: 12px; }
+    .back-to-top, .float-wa { width: 46px; height: 46px; }
+    .back-to-top svg.icon-arrow { width: 16px; height: 16px; }
+    .float-wa svg { width: 22px; height: 22px; }
+}
+
+/* --------------------------------------------------------------------------
+   4. Reveal on scroll — stagger otomatis (menambah dari base .reveal di css utama)
+   -------------------------------------------------------------------------- */
+.reveal { will-change: opacity, transform; }
+
+/* --------------------------------------------------------------------------
+   5. Hover zoom untuk gambar dalam kartu/galeri
+   -------------------------------------------------------------------------- */
+.card-media,
+.card-img,
+.destinasi-media,
+.galeri-media {
+    overflow: hidden;
+}
+.card-media img,
+.card-img img,
+.destinasi-media img,
+.galeri-media img {
+    transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+}
+.card-media:hover img,
+.card-img:hover img,
+.destinasi-media:hover img,
+.galeri-media:hover img {
+    transform: scale(1.08);
+}
+
+/* --------------------------------------------------------------------------
+   6. Tilt 3D untuk kartu (dikontrol lewat JS: custom property + transform)
+   -------------------------------------------------------------------------- */
+.tilt-el {
+    transform-style: preserve-3d;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+/* --------------------------------------------------------------------------
+   7. Efek ripple pada tombol
+   -------------------------------------------------------------------------- */
+.ripple-el {
+    position: relative;
+    overflow: hidden;
+}
+.ripple-span {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    transform: scale(0);
+    animation: rippleAnim 0.6s ease-out;
+    pointer-events: none;
+}
+@keyframes rippleAnim {
+    to { transform: scale(2.6); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   8. Ikon budaya: micro-interaction saat hover
+   -------------------------------------------------------------------------- */
+.budaya-card .card-icon svg {
+    transition: transform 0.4s var(--ease);
+}
+.budaya-card:hover .card-icon svg {
+    transform: scale(1.18) rotate(-6deg);
+}
+
+/* --------------------------------------------------------------------------
+   9. Animasi masuk untuk konten hero (berjalan otomatis saat halaman dibuka)
+   -------------------------------------------------------------------------- */
+.hero-content > .eyebrow,
+.hero-content > h1,
+.hero-content > p,
+.hero-content > .btn {
+    opacity: 0;
+    transform: translateY(22px);
+    animation: heroIn 0.9s var(--ease) forwards;
+}
+.hero-content > .eyebrow { animation-delay: 0.05s; }
+.hero-content > h1       { animation-delay: 0.18s; }
+.hero-content > p        { animation-delay: 0.34s; }
+.hero-content > .btn     { animation-delay: 0.5s; }
+
+@keyframes heroIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Parallax halus untuk kontur gunung di hero (digerakkan via JS transform) */
+.ridge--hero { will-change: transform; }
+
+/* --------------------------------------------------------------------------
+   10. Transisi keluar halaman (saat klik link internal antar halaman)
+   -------------------------------------------------------------------------- */
+body.page-fade-out {
+    opacity: 0;
+    transition: opacity 0.28s ease;
+}
+
+/* --------------------------------------------------------------------------
+   11. Lightbox galeri foto
+   -------------------------------------------------------------------------- */
+img[loading="lazy"] {
+    cursor: zoom-in;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(19, 42, 32, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    padding: 24px;
+}
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+.lightbox-img {
+    max-width: min(90vw, 1100px);
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6);
+    transform: scale(0.96);
+    transition: transform 0.3s var(--ease);
+}
+.lightbox.open .lightbox-img { transform: scale(1); }
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 26px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--cream-100);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 0 60px;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: var(--cream-100);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(255,255,255,0.2);
+}
+.lightbox-close {
+    top: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+.lightbox-prev,
+.lightbox-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+}
+.lightbox-prev:hover, .lightbox-next:hover { transform: translateY(-50%) scale(1.06); }
+.lightbox-prev { left: 18px; }
+.lightbox-next { right: 18px; }
+
+@media (max-width: 640px) {
+    .lightbox-prev, .lightbox-next { width: 40px; height: 40px; font-size: 1.3rem; }
+    .lightbox-caption { font-size: 0.85rem; padding: 0 46px; }
+}
+
+/* --------------------------------------------------------------------------
+   12. Kalkulator Estimasi Biaya (khusus paket.html)
+   -------------------------------------------------------------------------- */
+.kalkulator {
+    max-width: 900px;
+    margin: 0 auto 56px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(19, 42, 32, 0.08);
+    overflow: hidden;
+}
+.kalkulator-head {
+    padding: 32px 32px 8px;
+}
+.kalkulator-head h3 {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    color: var(--forest-900);
+    margin: 6px 0 8px;
+}
+.kalkulator-head p {
+    font-family: var(--font-body);
+    color: rgba(38, 51, 44, 0.72);
+    font-size: 0.96rem;
+    max-width: 60ch;
+}
+.kalkulator-body {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 18px;
+    padding: 12px 32px;
+}
+.kalkulator-field label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--forest-700);
+    margin-bottom: 8px;
+}
+.kalkulator-field select,
+.kalkulator-field input {
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(19, 42, 32, 0.16);
+    font-family: var(--font-body);
+    font-size: 0.96rem;
+    color: var(--ink);
+    background: var(--cream-100);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.kalkulator-field select:focus,
+.kalkulator-field input:focus {
+    outline: none;
+    border-color: var(--gold-500);
+    box-shadow: 0 0 0 4px rgba(217, 164, 65, 0.18);
+}
+.kalkulator-result {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 20px 32px 0;
+    padding: 22px 26px;
+    background: var(--forest-900);
+    border-radius: 14px;
+}
+.kalkulator-total {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.kalkulator-total span {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-300);
+}
+.kalkulator-total strong {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--white);
+    font-variant-numeric: tabular-nums;
+}
+.kalkulator-warning {
+    flex-basis: 100%;
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    color: var(--gold-300);
+    background: rgba(217, 164, 65, 0.12);
+    border: 1px solid rgba(217, 164, 65, 0.35);
+    padding: 10px 14px;
+    border-radius: 10px;
+}
+.kalkulator-result .btn-booking {
+    white-space: nowrap;
+}
+.kalkulator-note {
+    padding: 4px 32px 26px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(38, 51, 44, 0.55);
+}
+
+@media (max-width: 720px) {
+    .kalkulator-body { grid-template-columns: 1fr; }
+    .kalkulator-result { flex-direction: column; align-items: flex-start; }
+}
+
+/* --------------------------------------------------------------------------
+   13. Angka harga: siapkan agar count-up rapi (tidak "melompat" layout)
+   -------------------------------------------------------------------------- */
+.paket-price .amount { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content > .eyebrow,
+    .hero-content > h1,
+    .hero-content > p,
+    .hero-content > .btn {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+    .float-wa::before { animation: none; display: none; }
+}

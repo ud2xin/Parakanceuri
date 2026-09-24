@@ -28,6 +28,20 @@ Website ini dibangun murni menggunakan teknologi web dasar (*Vanilla*), sehingga
 * **CSS3** (Styling, transisi, animasi *scroll*, dan desain responsif)
 * **Vanilla JavaScript** (Interaksi DOM, *smooth scrolling*, manipulasi *navbar*, dan animasi *Intersection Observer*)
 
+## ✨ Lapisan Interaktif (assets/css/interactive.css & assets/js/interactive.js)
+
+Kedua file ini dimuat di **semua halaman** dan berisi seluruh fitur interaktif/animasi tambahan, terpisah dari CSS/JS khusus tiap halaman:
+* **Lightbox galeri foto** — klik gambar mana pun untuk melihat versi penuh layar, bisa geser dengan tombol panah/keyboard.
+* **Reveal-on-scroll dengan stagger** — kartu-kartu muncul bergantian, bukan bersamaan.
+* **Tilt 3D halus** pada kartu & gambar saat kursor mouse bergerak di atasnya.
+* **Efek ripple** pada tombol saat diklik.
+* **Kalkulator Estimasi Biaya** di halaman Paket Wisata — pilih paket & jumlah peserta, total otomatis terhitung dan tombol booking WhatsApp otomatis terisi pesannya.
+* **Count-up angka harga** paket saat kartu masuk ke area pandang.
+* **Progress bar scroll**, **tombol kembali ke atas**, dan **tombol WhatsApp mengambang** di semua halaman.
+* **Parallax halus** pada ilustrasi kontur gunung di hero, serta transisi *fade* saat berpindah halaman.
+
+Semua fitur menghormati pengaturan *prefers-reduced-motion* pengguna, dan tetap 100% frontend (tanpa backend/build step) sehingga bisa langsung di-hosting di GitHub Pages seperti sebelumnya.
+
 ---
 
 ## 📂 Struktur Folder Proyek
